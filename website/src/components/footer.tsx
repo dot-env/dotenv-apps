@@ -4,7 +4,7 @@ import { contacts, links, socials } from "#/configs/site";
 
 const Footer = () => {
     return (
-        <footer className="flex flex-col justify-center items-center gap-6 mt-8 px-4 md:px-0 w-full">
+        <footer className="flex flex-col justify-center items-center gap-6 mt-8 px-4 md:px-0 pb-4 w-full">
             <div className="flex flex-col items-center gap-4 w-full">
                 <div className="gap-4 grid grid-cols-10 w-full">
                     <div className="col-span-9 md:col-span-2">
@@ -86,7 +86,7 @@ const Footer = () => {
                 </div>
 
                 <hr className="mt-4 border-[0.5px] border-muted-foreground border-solid w-full" />
-                <div className="flex md:flex-row flex-col justify-center md:justify-start md:items-start md:w-full">
+                <div className="flex md:flex-row flex-col justify-center md:justify-start md:items-start w-full">
                     <p className="text-muted-foreground text-xs">
                         Operating Hours
                     </p>

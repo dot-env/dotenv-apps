@@ -191,11 +191,207 @@ export const projects = [
         description: "A stock market trading platform.",
         url: "https://pipalert.co.za",
         image: "https://pipalert.co.za/logo.svg",
+        status: "Live",
+        industry: "Finance",
     },
     {
         name: "Local Lifestyle",
         description: "A local business directory.",
+        status: "Live",
+        industry: "Finance",
         url: "https://locallifestyle.co.za",
-        image: "https://www.locallifestyle.co.za/_next/image?url=%2Flogo.png&w=256&q=75",
+        image:
+            "https://www.locallifestyle.co.za/_next/image?url=%2Flogo.png&w=256&q=75",
+    },
+];
+
+
+export const skills = [
+    {
+        "category": "Core Technical Expertise",
+        "skills": [
+            {
+                "name": "Cloud Architecture",
+                "description": "Designing scalable, cost-optimized systems on AWS/Azure/GCP with Kubernetes, Docker, and IaC (Terraform).",
+                "tagline": "No more vendor lock-in or surprise bills."
+            },
+            {
+                "name": "Frontend Engineering",
+                "description": "Building pixel-perfect React, Angular, or Vue.js apps with 60% faster load times via code-splitting and edge caching.",
+                "tagline": "Websites that convert, not just look pretty."
+            },
+            {
+                "name": "Mobile Development",
+                "description": "Cross-platform (React Native) or native (Swift/Kotlin) apps with offline-first capabilities and App Store compliance.",
+                "tagline": "Launch in half the time, double the impact."
+            },
+            {
+                "name": "DevSecOps",
+                "description": "CI/CD pipelines with embedded security checks (SAST/DAST) and GitOps workflows for zero-downtime deployments.",
+                "tagline": "Ship fearlessly, even in regulated industries."
+            }
+        ]
+    },
+    {
+        "category": "Strategic Methodologies",
+        "skills": [
+            {
+                "name": "Microservices & Event-Driven Design",
+                "description": "Breaking monoliths into resilient, independently deployable services using Kafka/RabbitMQ.",
+                "tagline": "Scale individual features, not entire systems."
+            },
+            {
+                "name": "Legacy Modernization",
+                "description": "Rewriting COBOL/Java EE systems into cloud-native Node.js/Python stacks with phased rollouts.",
+                "tagline": "Make technical debt history."
+            },
+            {
+                "name": "AI/ML Integration",
+                "description": "Embedding LLMs (GPT-4, Claude) and predictive analytics into workflows without infrastructure bloat.",
+                "tagline": "Turn data into decisions, not just dashboards."
+            },
+            {
+                "name": "Compliance Engineering",
+                "description": "GDPR/HIPAA/SOC2-ready architectures with automated audit trails and role-based access.",
+                "tagline": "Sleep well knowing you’re lawsuit-proof."
+            }
+        ]
+    },
+    {
+        "category": "Performance & Optimization",
+        "skills": [
+            {
+                "name": "Database Tuning",
+                "description": "100x query speed boosts via PostgreSQL indexing, Redis caching, and MongoDB sharding strategies.",
+                "tagline": "Your data shouldn’t be your bottleneck."
+            },
+            {
+                "name": "Web3 & Blockchain",
+                "description": "Smart contract development (Solidity), tokenomics design, and private Hyperledger solutions.",
+                "tagline": "Innovate without crypto volatility exposure."
+            },
+            {
+                "name": "Serverless Architectures",
+                "description": "Cost-efficient AWS Lambda/Firebase setups with cold-start mitigation and auto-scaling.",
+                "tagline": "Pay per millisecond, not per month."
+            }
+        ]
+    },
+    {
+        "category": "Client-Centric Practices",
+        "skills": [
+            {
+                "name": "Agile Leadership",
+                "description": "Biweekly sprints with Jira/Linear transparency and client-prioritized backlogs.",
+                "tagline": "No black boxes. Ever."
+            },
+            {
+                "name": "UX-Driven Development",
+                "description": "A/B tested interfaces using Figma prototypes and Hotjar heatmaps.",
+                "tagline": "Designs proven to boost signups by 40%+."
+            },
+            {
+                "name": "Disaster Recovery",
+                "description": "Multi-region backups, chaos engineering, and 5-minute RTO guarantees.",
+                "tagline": "Your insurance policy against downtime."
+            },
+            {
+                "name": "Tech Stack Audits",
+                "description": "90-day action plans to eliminate bloated dependencies and security vulnerabilities.",
+                "tagline": "Cut costs, not capabilities."
+            }
+        ]
+    },
+    {
+        "category": "Industry Specializations",
+        "skills": [
+            {
+                "name": "FinTech",
+                "description": "Real-time transaction systems, fraud detection algorithms.",
+                "tagline": "Secure, scalable financial solutions."
+            },
+            {
+                "name": "HealthTech",
+                "description": "FHIR/HL7 compliance, wearable device integrations.",
+                "tagline": "Innovating healthcare with tech."
+            },
+            {
+                "name": "E-Commerce",
+                "description": "Headless Shopify/Medusa setups, checkout flow optimization.",
+                "tagline": "Boost conversions, reduce cart abandonment."
+            },
+            {
+                "name": "SaaS",
+                "description": "Multi-tenant architectures, usage-based billing engines.",
+                "tagline": "Scale your software, not your headaches."
+            }
+        ]
+    }
+  ]
+
+export const services = [
+    {
+        name: "Enterprise Web Development",
+        shortDescription: "Transform ideas into high-performance web platforms",
+        description:
+            "Crafting cloud-native web solutions that handle millions of users while maintaining blazing speed. From React-powered PWAs to Node.js microservices, we build digital engines for growth.",
+        url: "/services/enterprise-web-development",
+    },
+    {
+        name: "Mobile-First Innovation",
+        shortDescription: "Native apps that users love & investors notice",
+        description:
+            "Build App Store-ready iOS/Android experiences with Flutter or native stacks. Featuring AI-driven analytics, offline capabilities, and seamless API integration - mobile success, engineered.",
+        url: "/services/premium-mobile-development",
+    },
+    {
+        name: "Conversion-Centered UI/UX",
+        shortDescription: "Design that drives engagement & revenue",
+        description:
+            "User journeys scientifically optimized to boost retention by 60%+. Our data-backed designs combine behavioral psychology with stunning aesthetics for interfaces that perform.",
+        url: "/services/ui-ux-design-conversion",
+    },
+    {
+        name: "Technical Leadership as Service",
+        shortDescription: "Your outsourced CTO team",
+        description:
+            "Get Fortune 500-grade architecture guidance without the overhead. We blueprint scalable systems, lead DevOps transformations, and de-risk your tech roadmap.",
+        url: "/services/cto-consulting",
+    },
+    {
+        name: "Future-Proof Architecture",
+        shortDescription: "Systems that scale at startup speed",
+        description:
+            "Design serverless ecosystems, event-driven architectures, and fault-tolerant distributed systems. Sleep well knowing your foundation handles 10x growth overnight.",
+        url: "/services/scalable-software-architecture",
+    },
+    {
+        name: "Bulletproof Quality Assurance",
+        shortDescription: "Ship with zero-critical-issues confidence",
+        description:
+            "Our military-grade testing combines penetration testing, load simulation, and mutation testing to eliminate risks before they reach production.",
+        url: "/services/enterprise-software-testing",
+    },
+
+    {
+        name: "DevOps & Cloud Engineering",
+        shortDescription: "Automate your deployment pipeline",
+        description:
+            "From CI/CD pipelines to Kubernetes clusters, we automate your infrastructure to scale with your business. Sleep well knowing your systems are secure, scalable, and cost-efficient.",
+        url: "/services/devops-cloud-engineering",
+    },
+    {
+        name: "Legacy System Modernization",
+        shortDescription: "Revitalize your outdated software stack",
+        description:
+            "Upgrade your legacy systems to cloud-native, microservices-based architectures. We refactor monoliths into scalable, maintainable systems that cut costs by 70%.",
+        url: "/services/legacy-system-modernization",
+    },
+    {
+        name: "Software Consulting",
+        shortDescription: "Expert advice for your digital journey",
+        description:
+            "Get strategic guidance on technology investments, product-market fit, and digital transformation. Our consultants have a track record of turning ideas into profitable software products.",
+        url: "/services/software-consulting",
     },
 ];

@@ -3,3 +3,10 @@
 
 # Finder (MacOS) folder config
 .DS_Store
+
+**/*-lock.json
+**/node_modules
+**/dist
+**/build
+**/coverage
+

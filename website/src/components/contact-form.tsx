@@ -7,14 +7,14 @@ import {
     SelectTrigger,
     SelectValue,
 } from "./ui/select";
+import Link from "next/link";
 import { Input } from "./ui/input";
 import { ArrowRight } from "lucide-react";
 import { Textarea } from "./ui/textarea";
 import { navData } from "#/configs/nav-bar";
-import Link from "next/link";
-import { useReCaptcha } from "next-recaptcha-v3";
-import { handleContactForm } from "#/backend/contact-form";
 import { useToast } from "#/hooks/use-toast";
+import { useReCaptcha } from "next-recaptcha-v3";
+import { type ContactForm, handleContactForm } from "#/backend/contact-form";
 
 const ContactForm = () => {
     const { toast } = useToast();
@@ -28,7 +28,7 @@ const ContactForm = () => {
         const token = await executeRecaptcha("contact_form");
         formData.append("recaptcha_token", token);
         const res = await handleContactForm(
-            Object.fromEntries(formData.entries()),
+            Object.fromEntries(formData.entries()) as ContactForm,
         );
 
         toast({
@@ -50,7 +50,7 @@ const ContactForm = () => {
                         required
                         autoComplete="given-name"
                         pattern="[A-Za-z]{1,32}"
-                        name="first-name"
+                        name="first_name"
                     />
                     <Input
                         type="text"
@@ -60,22 +60,24 @@ const ContactForm = () => {
                         pattern="[A-Za-z]{1,32}"
                         aria-required="true"
                         aria-invalid="true"
-                        name="last-name"
+                        name="last_name"
                     />
                     <Input
                         type="email"
                         placeholder="Email Address"
                         required
-                        autoComplete="email"
+                        autoComplete="work email"
+                        name="email"
                     />
                     <Input
                         type="tel"
                         placeholder="Phone Number (011-456-7890)"
                         required
-                        autoComplete="tel"
+                        autoComplete="mobile tel"
                         pattern="[0-9]{3}[0-9]{3}[0-9]{4}"
+                        name="phone"
                     />
-                    <Select name="company-size" required>
+                    <Select name="company_size" required>
                         <SelectTrigger className="w-full">
                             <SelectValue placeholder="Company Size" />
                         </SelectTrigger>
@@ -110,6 +112,7 @@ const ContactForm = () => {
                     <Textarea
                         placeholder="Message"
                         className="md:col-span-2"
+                        name="message"
                     />
                 </div>
                 <Button type="submit">
