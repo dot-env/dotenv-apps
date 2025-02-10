@@ -62,7 +62,7 @@ const Navbar1 = ({
   mobileExtraLinks,
 }: Navbar1Props) => {
   return (
-    <section className="top-1 z-50 sticky bg-transparent backdrop-blur-lg p-4 border rounded-full">
+    <section className="z-50 sticky inset-0 bg-transparent backdrop-blur-lg p-4 border rounded-full">
       <div className="container">
         <nav className="hidden lg:flex">
           <div className="flex justify-between items-center gap-6 w-full">

@@ -41,6 +41,12 @@ export const navData = {
           url: "/web-development",
         },
         {
+          title: "Testing",
+          // description: "Our terms and conditions for using our services",
+          // icon: <Book className="size-5 shrink-0" />,
+          url: "/testing",
+        },
+        {
           title: "UI/UX Design",
           // description: "Get in touch with us for more information",
           // icon: <Zap className="size-5 shrink-0" />,
