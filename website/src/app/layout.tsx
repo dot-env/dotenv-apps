@@ -8,6 +8,7 @@ import { navData } from "#/configs/nav-bar";
 import { meta } from "#/configs/site";
 import { ReCaptchaProvider } from "next-recaptcha-v3";
 import { Toaster } from "#/components/ui/toaster";
+import Footer from "#/components/footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -44,7 +45,10 @@ export default function RootLayout({
           />
           <div className="absolute inset-2 mx-auto max-w-4xl">
             <Navbar1 {...navData} />
-            {children}
+            <div className="flex flex-col gap-6 min-h-screen font-[family-name:var(--font-geist-sans)]">
+              {children}
+              <Footer />
+            </div>
           </div>
           <Toaster />
         </ReCaptchaProvider>

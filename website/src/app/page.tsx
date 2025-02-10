@@ -2,14 +2,13 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 
-import Footer from "#/components/footer";
-import { projects, services, skills } from "#/configs/site";
 import { Button } from "#/components/ui/button";
 import ContactForm from "#/components/contact-form";
+import { projects, services, skills } from "#/configs/site";
 
 export default function Home() {
   return (
-    <div className="flex flex-col gap-6 min-h-screen font-[family-name:var(--font-geist-sans)]">
+    <>
       <main
         aria-label="Home"
         className="flex justify-center items-center md:items-start gap-8 my-16 px-8 md:px-0 align-middle"
@@ -183,7 +182,7 @@ export default function Home() {
       <hr />
       <section id="projects" aria-label="Our Projects">
         <div className="flex justify-center items-center gap-8 my-16 px-8 md:px-0 align-middle">
-          <div className="flex flex-col justify-center items-center gap-8">
+          <div className="flex flex-col justify-center items-center gap-8 md:grid grid-cols-1">
             <div className="flex flex-col items-center md:items-start gap-4 md:gap-8">
               <h2 className="font-bold text-muted-foreground text-4xl md:text-5xl md:text-left text-center">
                 <span className="text-primary">Code</span> That Speaks Volumes
@@ -367,8 +366,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <Footer />
-    </div>
+    </>
   );
 }
 
