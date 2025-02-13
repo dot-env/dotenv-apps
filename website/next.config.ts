@@ -14,6 +14,9 @@ const nextConfig: NextConfig = {
     typedEnv: true,
     cssChunking: true,
   },
+  compiler:{
+    removeConsole: true,
+  }
 };
 
 export default nextConfig;
