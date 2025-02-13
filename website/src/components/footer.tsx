@@ -75,6 +75,8 @@ const Footer = () => {
                                         <Link
                                             href={social.url}
                                             target="_blank"
+                                            aria-label={social.icon.name}
+                                            rel="noreferrer"
                                         >
                                             <Icon className="w-5 h-5 text-muted-foreground hover:text-accent-foreground" />
                                         </Link>
@@ -108,7 +110,7 @@ const Footer = () => {
                         dotenv consulting. All rights reserved. Developed by
                         {"  "}
                         <Link
-                            href="https://github.com/axolem"
+                            href="https://dotenv.co.za"
                             className="text-accent-foreground"
                         >
                             dotenv consulting

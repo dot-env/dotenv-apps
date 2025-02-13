@@ -57,6 +57,7 @@ export default function Home() {
             width={500}
             height={500}
             className="col-span-2"
+            priority
           />
         </div>
       </main>

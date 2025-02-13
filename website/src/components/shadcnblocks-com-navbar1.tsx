@@ -139,7 +139,7 @@ const renderMenuItem = (item: MenuItem) => {
   if (item.items) {
     return (
       <NavigationMenuItem key={item.title} className="text-muted-foreground">
-        <NavigationMenuTrigger className="rounded-full hover:ring-1 hover:ring-zinc-200">
+        <NavigationMenuTrigger className="rounded-full hover:ring-1 hover:ring-zinc-200" aria-label="Open submenu">
           <Link
             href={item.url}
             className="font-medium text-md text-muted-foreground text-sm transition-colors hover:text-accent-foreground"

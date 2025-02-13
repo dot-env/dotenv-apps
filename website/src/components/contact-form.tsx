@@ -78,7 +78,7 @@ const ContactForm = () => {
                         name="phone"
                     />
                     <Select name="company_size" required>
-                        <SelectTrigger className="w-full">
+                        <SelectTrigger className="w-full" aria-label="Company Size">
                             <SelectValue placeholder="Company Size" />
                         </SelectTrigger>
                         <SelectContent>
@@ -97,7 +97,7 @@ const ContactForm = () => {
                         </SelectContent>
                     </Select>
                     <Select name="service" required>
-                        <SelectTrigger className="w-full">
+                        <SelectTrigger className="w-full" aria-label="Service">
                             <SelectValue placeholder="Service" />
                         </SelectTrigger>
                         <SelectContent>
