@@ -31,19 +31,19 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased scroll-smooth`}
       >
+        <GridPattern
+          width={30}
+          height={30}
+          x={-1}
+          y={-1}
+          strokeDasharray={"4 2"}
+          className={cn(
+            "[mask-image:radial-gradient(300px_circle_at_center,white,transparent)]",
+          )}
+        />
         <ReCaptchaProvider>
-          <GridPattern
-            width={30}
-            height={30}
-            x={-1}
-            y={-1}
-            strokeDasharray={"4 2"}
-            className={cn(
-              "[mask-image:radial-gradient(300px_circle_at_center,white,transparent)]",
-            )}
-          />
           <div className="absolute inset-2 mx-auto max-w-4xl">
             <Navbar1 {...navData} />
             <div className="flex flex-col gap-6 min-h-screen font-[family-name:var(--font-geist-sans)]">
