@@ -110,7 +110,7 @@ const Facebook02Icon = (props: React.SVGProps<SVGSVGElement>) => (
 );
 
 export const socials: {
-    url: UrlObject | __next_route_internal_types__.RouteImpl<"">;
+    url: UrlObject | __next_route_internal_types__.RouteImpl<string>;
     icon: (props: React.SVGProps<SVGSVGElement>) => JSX.Element;
 }[] = [
     {
@@ -133,7 +133,7 @@ export const socials: {
 
 export const links: {
     text: string;
-    url: UrlObject | __next_route_internal_types__.RouteImpl<"">;
+    url: UrlObject | __next_route_internal_types__.RouteImpl<string>;
 }[] = [
     {
         text: "Home",
@@ -365,7 +365,7 @@ export const services: {
     name: string;
     shortDescription: string;
     description: string;
-    url: UrlObject | __next_route_internal_types__.RouteImpl<"">;
+    url: UrlObject | __next_route_internal_types__.RouteImpl<string>;
 }[] = [
     {
         name: "Enterprise Web Development",

@@ -102,7 +102,10 @@ const ContactForm = () => {
                         </SelectTrigger>
                         <SelectContent>
                             {navData?.menu?.[3]?.items?.map((item, index) => (
-                                <SelectItem key={index} value={item.url}>
+                                <SelectItem
+                                    key={index}
+                                    value={item.url as string}
+                                >
                                     {item.title}
                                 </SelectItem>
                             ))}

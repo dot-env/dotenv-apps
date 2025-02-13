@@ -22,12 +22,13 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "#/components/ui/sheet";
-import { JSX } from "react";
+import type { JSX } from "react";
 import Link from "next/link";
+import type { UrlObject } from "url";
 
 interface MenuItem {
   title: string;
-  url: string;
+  url: UrlObject | __next_route_internal_types__.RouteImpl<string>;
   description?: string;
   icon?: JSX.Element;
   items?: MenuItem[];
@@ -35,7 +36,7 @@ interface MenuItem {
 
 interface Navbar1Props {
   logo?: {
-    url: string;
+    url: UrlObject | __next_route_internal_types__.RouteImpl<string>;
     src: string;
     alt: string;
     title: string;
@@ -43,16 +44,16 @@ interface Navbar1Props {
   menu?: MenuItem[];
   mobileExtraLinks?: {
     name: string;
-    url: string;
+    url: UrlObject | __next_route_internal_types__.RouteImpl<string>;
   }[];
   auth?: {
     login: {
       text: string;
-      url: string;
+      url: UrlObject | __next_route_internal_types__.RouteImpl<string>;
     };
     signup: {
       text: string;
-      url: string;
+      url: UrlObject | __next_route_internal_types__.RouteImpl<string>;
     };
   };
 }

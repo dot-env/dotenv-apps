@@ -1,4 +1,19 @@
-export const navData = {
+import type { UrlObject } from "url";
+
+export const navData: {
+  menu: {
+    title: string;
+    url: UrlObject | __next_route_internal_types__.RouteImpl<string>;
+    items?: {
+      title: string;
+      url: UrlObject | __next_route_internal_types__.RouteImpl<string>;
+    }[];
+  }[];
+  mobileExtraLinks: {
+    name: string;
+    url: UrlObject | __next_route_internal_types__.RouteImpl<string>;
+  }[];
+} = {
   menu: [
     {
       title: "Home",
@@ -70,10 +85,9 @@ export const navData = {
     },
   ],
   mobileExtraLinks: [
-    { name: "Press", url: "/press" },
     { name: "Contact", url: "/contact-us" },
-    { name: "Imprint", url: "/imprint" },
-    { name: "Sitemap", url: "/sitemap" },
+    // { name: "Imprint", url: "/imprint" },
+    // { name: "Sitemap", url: "/sitemap" },
   ],
   // auth: {
   //   login: { text: "Log in", url: "/login" },
