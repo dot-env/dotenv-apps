@@ -42,7 +42,7 @@ export const handleContactForm = async (data: ContactForm) => {
     });
 
     const recaptchaRes = (await res.json()) as ContactFormValidationResponse;
-
+    console.log(recaptchaRes.success && recaptchaRes.score > 0.5);
     if (recaptchaRes.success && recaptchaRes.score > 0.5) {
       after(async () => {
         await db
