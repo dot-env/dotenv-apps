@@ -85,11 +85,12 @@ const ContactForm = () => {
                         pattern="[0-9]{3}[0-9]{3}[0-9]{4}"
                         name="phone"
                     />
-                    <Select name="company_size" required>
-                        <SelectTrigger
-                            className="w-full"
-                            aria-label="Company Size"
-                        >
+                    <Select
+                        name="company_size"
+                        aria-label="Company Size"
+                        required
+                    >
+                        <SelectTrigger className="w-full">
                             <SelectValue placeholder="Company Size" />
                         </SelectTrigger>
                         <SelectContent>
@@ -107,8 +108,8 @@ const ContactForm = () => {
                             </SelectItem>
                         </SelectContent>
                     </Select>
-                    <Select name="service" required>
-                        <SelectTrigger className="w-full" aria-label="Service">
+                    <Select name="service" required aria-label="Service">
+                        <SelectTrigger className="w-full">
                             <SelectValue placeholder="Service" />
                         </SelectTrigger>
                         <SelectContent>

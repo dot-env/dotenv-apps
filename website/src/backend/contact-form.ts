@@ -1,5 +1,9 @@
 "use server";
 
+import { after } from "next/server";
+import { db } from "./db";
+import { contacts } from "./db/schema";
+
 export const handleContactForm = async (data: ContactForm) => {
   try {
     const {
@@ -40,7 +44,30 @@ export const handleContactForm = async (data: ContactForm) => {
     const recaptchaRes = (await res.json()) as ContactFormValidationResponse;
 
     if (recaptchaRes.success && recaptchaRes.score > 0.5) {
-      // Save to db and send email
+      after(async () => {
+        await db
+          .insert(contacts)
+          .values({
+            first_name,
+            last_name,
+            email,
+            phone,
+            company_size,
+            service,
+            message: data.message,
+          })
+          .onConflictDoUpdate({
+            target: [contacts.email],
+            set: {
+              first_name,
+              last_name,
+              phone,
+              company_size,
+              service,
+              message: data.message,
+            },
+          });
+      });
     }
 
     return { success: true, message: "Message sent successfully" };
