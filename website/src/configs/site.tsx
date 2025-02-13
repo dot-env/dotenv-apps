@@ -133,7 +133,7 @@ export const links = [
     },
     {
         text: "About",
-        url: "/about",
+        url: "/about-us",
     },
     {
         text: "Our Work",
