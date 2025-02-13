@@ -9,6 +9,7 @@ import { meta } from "#/configs/site";
 import { ReCaptchaProvider } from "next-recaptcha-v3";
 import { Toaster } from "#/components/ui/toaster";
 import Footer from "#/components/footer";
+import { Analytics } from "@vercel/analytics/react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -53,6 +54,7 @@ export default function RootLayout({
           <Toaster />
         </ReCaptchaProvider>
       </body>
+      <Analytics />
     </html>
   );
 }

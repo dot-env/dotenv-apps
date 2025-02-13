@@ -334,8 +334,6 @@ export default function Home() {
         </div>
       </section>
 
-      <hr />
-
       <section
         id="cta"
         aria-label="Book Your Free Session"
