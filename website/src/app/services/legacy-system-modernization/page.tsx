@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 
 
 export const metadata: Metadata = {
-    title: generateTitle("Services | Mobile Development"),
+    title: generateTitle("Services | Legacy System Modernization"),
 };
 
 export default function page() {

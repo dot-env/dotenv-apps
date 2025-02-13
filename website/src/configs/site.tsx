@@ -1,4 +1,6 @@
-import { Metadata } from "next";
+import type { JSX } from "react";
+import type { Metadata } from "next";
+import type { UrlObject } from "url";
 
 export const contacts = {
     email: "team@dotenv.co.za",
@@ -107,26 +109,32 @@ const Facebook02Icon = (props: React.SVGProps<SVGSVGElement>) => (
     </svg>
 );
 
-export const socials = [
+export const socials: {
+    url: UrlObject | __next_route_internal_types__.RouteImpl<"">;
+    icon: (props: React.SVGProps<SVGSVGElement>) => JSX.Element;
+}[] = [
     {
-        url: "https://twitter.com/dotenv_co_za",
+        url: "https://twitter.com/dotenv_co",
         icon: NewTwitterIcon,
     },
     {
-        url: "https://www.linkedin.com/company/dotenv-co-za",
+        url: "https://www.linkedin.com/company/dotenv_co",
         icon: Linkedin02Icon,
     },
     {
-        url: "https://www.facebook.com/dotenv.co.za",
+        url: "https://www.facebook.com/dotenv_co",
         icon: Facebook02Icon,
     },
     {
-        url: "https://www.instagram.com/dotenv.co.za",
+        url: "https://www.instagram.com/dotenv_co",
         icon: InstagramIcon,
     },
 ];
 
-export const links = [
+export const links: {
+    text: string;
+    url: UrlObject | __next_route_internal_types__.RouteImpl<"">;
+}[] = [
     {
         text: "Home",
         url: "/",
@@ -154,7 +162,8 @@ export const links = [
     },
 ];
 
-export const generateTitle = (title: string) => `${title} - Dotenv | Software Development`;
+export const generateTitle = (title: string) =>
+    `${title} - Dotenv | Software Development`;
 
 export const meta: Metadata = {
     title: "Home - Dotenv | Software Development",
@@ -352,7 +361,12 @@ export const skills = [
     },
 ];
 
-export const services = [
+export const services: {
+    name: string;
+    shortDescription: string;
+    description: string;
+    url: UrlObject | __next_route_internal_types__.RouteImpl<"">;
+}[] = [
     {
         name: "Enterprise Web Development",
         shortDescription: "Transform ideas into high-performance web platforms",

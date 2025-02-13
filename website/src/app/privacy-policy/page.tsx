@@ -1,5 +1,5 @@
 import { generateTitle } from "#/configs/site";
-import { Metadata } from "next";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
     title: generateTitle("Privacy Policy"),

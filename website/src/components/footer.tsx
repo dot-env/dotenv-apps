@@ -71,7 +71,7 @@ const Footer = () => {
                             {socials.map((social) => {
                                 const Icon = social.icon;
                                 return (
-                                    <li key={social.url}>
+                                    <li key={social.url as string}>
                                         <Link
                                             href={social.url}
                                             target="_blank"
@@ -87,15 +87,18 @@ const Footer = () => {
 
                 <hr className="mt-4 border-[0.5px] border-muted-foreground border-solid w-full" />
                 <div className="flex justify-between items-center gap-2 w-full">
-                    <div
-                    className="flex md:flex-row flex-col justify-center md:justify-start md:items-start w-full"
-                    ><p className="text-muted-foreground text-xs">
-                        Operating Hours
-                    </p>
-                    <p className="text-muted-foreground text-xs">
-                        Monday - Friday: 9:00 AM - 5:00 PM
-                    </p></div>
-                    <Link href="/privacy-policy" className="min-w-fit text-xs text-accent-foreground">
+                    <div className="flex md:flex-row flex-col justify-center md:justify-start md:items-start w-full">
+                        <p className="text-muted-foreground text-xs">
+                            Operating Hours
+                        </p>
+                        <p className="text-muted-foreground text-xs">
+                            Monday - Friday: 9:00 AM - 5:00 PM
+                        </p>
+                    </div>
+                    <Link
+                        href="/privacy-policy"
+                        className="min-w-fit text-xs text-accent-foreground"
+                    >
                         Privacy Policy
                     </Link>
                 </div>
