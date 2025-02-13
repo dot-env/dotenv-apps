@@ -139,7 +139,12 @@ const renderMenuItem = (item: MenuItem) => {
     return (
       <NavigationMenuItem key={item.title} className="text-muted-foreground">
         <NavigationMenuTrigger className="rounded-full hover:ring-1 hover:ring-zinc-200">
-          {item.title}
+          <Link
+            href={item.url}
+            className="font-medium text-md text-muted-foreground text-sm transition-colors hover:text-accent-foreground"
+          >
+            {item.title}
+          </Link>
         </NavigationMenuTrigger>
         <NavigationMenuContent>
           <ul className="p-0 min-w-64">

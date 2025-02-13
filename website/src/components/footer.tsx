@@ -86,13 +86,18 @@ const Footer = () => {
                 </div>
 
                 <hr className="mt-4 border-[0.5px] border-muted-foreground border-solid w-full" />
-                <div className="flex md:flex-row flex-col justify-center md:justify-start md:items-start w-full">
-                    <p className="text-muted-foreground text-xs">
+                <div className="flex justify-between items-center gap-2 w-full">
+                    <div
+                    className="flex md:flex-row flex-col justify-center md:justify-start md:items-start w-full"
+                    ><p className="text-muted-foreground text-xs">
                         Operating Hours
                     </p>
                     <p className="text-muted-foreground text-xs">
                         Monday - Friday: 9:00 AM - 5:00 PM
-                    </p>
+                    </p></div>
+                    <Link href="/privacy-policy" className="min-w-fit text-xs text-accent-foreground">
+                        Privacy Policy
+                    </Link>
                 </div>
                 <div className="flex flex-col items-center gap-2">
                     <p className="text-muted-foreground text-xs">

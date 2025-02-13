@@ -154,6 +154,8 @@ export const links = [
     },
 ];
 
+export const generateTitle = (title: string) => `${title} - Dotenv | Software Development`;
+
 export const meta: Metadata = {
     title: "Home - Dotenv | Software Development",
     description:
@@ -183,6 +185,9 @@ export const meta: Metadata = {
     referrer: "no-referrer-when-downgrade",
     creator: "Axole Maranjana",
     manifest: "/site.webmanifest",
+    other: {
+        "canonical": "https://.dotenv.co.za",
+    },
 };
 
 export const projects = [
@@ -205,129 +210,147 @@ export const projects = [
     },
 ];
 
-
 export const skills = [
     {
         "category": "Core Technical Expertise",
         "skills": [
             {
                 "name": "Cloud Architecture",
-                "description": "Designing scalable, cost-optimized systems on AWS/Azure/GCP with Kubernetes, Docker, and IaC (Terraform).",
-                "tagline": "No more vendor lock-in or surprise bills."
+                "description":
+                    "Designing scalable, cost-optimized systems on AWS/Azure/GCP with Kubernetes, Docker, and IaC (Terraform).",
+                "tagline": "No more vendor lock-in or surprise bills.",
             },
             {
                 "name": "Frontend Engineering",
-                "description": "Building pixel-perfect React, Angular, or Vue.js apps with 60% faster load times via code-splitting and edge caching.",
-                "tagline": "Websites that convert, not just look pretty."
+                "description":
+                    "Building pixel-perfect React, Angular, or Vue.js apps with 60% faster load times via code-splitting and edge caching.",
+                "tagline": "Websites that convert, not just look pretty.",
             },
             {
                 "name": "Mobile Development",
-                "description": "Cross-platform (React Native) or native (Swift/Kotlin) apps with offline-first capabilities and App Store compliance.",
-                "tagline": "Launch in half the time, double the impact."
+                "description":
+                    "Cross-platform (React Native) or native (Swift/Kotlin) apps with offline-first capabilities and App Store compliance.",
+                "tagline": "Launch in half the time, double the impact.",
             },
             {
                 "name": "DevSecOps",
-                "description": "CI/CD pipelines with embedded security checks (SAST/DAST) and GitOps workflows for zero-downtime deployments.",
-                "tagline": "Ship fearlessly, even in regulated industries."
-            }
-        ]
+                "description":
+                    "CI/CD pipelines with embedded security checks (SAST/DAST) and GitOps workflows for zero-downtime deployments.",
+                "tagline": "Ship fearlessly, even in regulated industries.",
+            },
+        ],
     },
     {
         "category": "Strategic Methodologies",
         "skills": [
             {
                 "name": "Microservices & Event-Driven Design",
-                "description": "Breaking monoliths into resilient, independently deployable services using Kafka/RabbitMQ.",
-                "tagline": "Scale individual features, not entire systems."
+                "description":
+                    "Breaking monoliths into resilient, independently deployable services using Kafka/RabbitMQ.",
+                "tagline": "Scale individual features, not entire systems.",
             },
             {
                 "name": "Legacy Modernization",
-                "description": "Rewriting COBOL/Java EE systems into cloud-native Node.js/Python stacks with phased rollouts.",
-                "tagline": "Make technical debt history."
+                "description":
+                    "Rewriting COBOL/Java EE systems into cloud-native Node.js/Python stacks with phased rollouts.",
+                "tagline": "Make technical debt history.",
             },
             {
                 "name": "AI/ML Integration",
-                "description": "Embedding LLMs (GPT-4, Claude) and predictive analytics into workflows without infrastructure bloat.",
-                "tagline": "Turn data into decisions, not just dashboards."
+                "description":
+                    "Embedding LLMs (GPT-4, Claude) and predictive analytics into workflows without infrastructure bloat.",
+                "tagline": "Turn data into decisions, not just dashboards.",
             },
             {
                 "name": "Compliance Engineering",
-                "description": "GDPR/HIPAA/SOC2-ready architectures with automated audit trails and role-based access.",
-                "tagline": "Sleep well knowing you’re lawsuit-proof."
-            }
-        ]
+                "description":
+                    "GDPR/HIPAA/SOC2-ready architectures with automated audit trails and role-based access.",
+                "tagline": "Sleep well knowing you’re lawsuit-proof.",
+            },
+        ],
     },
     {
         "category": "Performance & Optimization",
         "skills": [
             {
                 "name": "Database Tuning",
-                "description": "100x query speed boosts via PostgreSQL indexing, Redis caching, and MongoDB sharding strategies.",
-                "tagline": "Your data shouldn’t be your bottleneck."
+                "description":
+                    "100x query speed boosts via PostgreSQL indexing, Redis caching, and MongoDB sharding strategies.",
+                "tagline": "Your data shouldn’t be your bottleneck.",
             },
             {
                 "name": "Web3 & Blockchain",
-                "description": "Smart contract development (Solidity), tokenomics design, and private Hyperledger solutions.",
-                "tagline": "Innovate without crypto volatility exposure."
+                "description":
+                    "Smart contract development (Solidity), tokenomics design, and private Hyperledger solutions.",
+                "tagline": "Innovate without crypto volatility exposure.",
             },
             {
                 "name": "Serverless Architectures",
-                "description": "Cost-efficient AWS Lambda/Firebase setups with cold-start mitigation and auto-scaling.",
-                "tagline": "Pay per millisecond, not per month."
-            }
-        ]
+                "description":
+                    "Cost-efficient AWS Lambda/Firebase setups with cold-start mitigation and auto-scaling.",
+                "tagline": "Pay per millisecond, not per month.",
+            },
+        ],
     },
     {
         "category": "Client-Centric Practices",
         "skills": [
             {
                 "name": "Agile Leadership",
-                "description": "Biweekly sprints with Jira/Linear transparency and client-prioritized backlogs.",
-                "tagline": "No black boxes. Ever."
+                "description":
+                    "Biweekly sprints with Jira/Linear transparency and client-prioritized backlogs.",
+                "tagline": "No black boxes. Ever.",
             },
             {
                 "name": "UX-Driven Development",
-                "description": "A/B tested interfaces using Figma prototypes and Hotjar heatmaps.",
-                "tagline": "Designs proven to boost signups by 40%+."
+                "description":
+                    "A/B tested interfaces using Figma prototypes and Hotjar heatmaps.",
+                "tagline": "Designs proven to boost signups by 40%+.",
             },
             {
                 "name": "Disaster Recovery",
-                "description": "Multi-region backups, chaos engineering, and 5-minute RTO guarantees.",
-                "tagline": "Your insurance policy against downtime."
+                "description":
+                    "Multi-region backups, chaos engineering, and 5-minute RTO guarantees.",
+                "tagline": "Your insurance policy against downtime.",
             },
             {
                 "name": "Tech Stack Audits",
-                "description": "90-day action plans to eliminate bloated dependencies and security vulnerabilities.",
-                "tagline": "Cut costs, not capabilities."
-            }
-        ]
+                "description":
+                    "90-day action plans to eliminate bloated dependencies and security vulnerabilities.",
+                "tagline": "Cut costs, not capabilities.",
+            },
+        ],
     },
     {
         "category": "Industry Specializations",
         "skills": [
             {
                 "name": "FinTech",
-                "description": "Real-time transaction systems, fraud detection algorithms.",
-                "tagline": "Secure, scalable financial solutions."
+                "description":
+                    "Real-time transaction systems, fraud detection algorithms.",
+                "tagline": "Secure, scalable financial solutions.",
             },
             {
                 "name": "HealthTech",
-                "description": "FHIR/HL7 compliance, wearable device integrations.",
-                "tagline": "Innovating healthcare with tech."
+                "description":
+                    "FHIR/HL7 compliance, wearable device integrations.",
+                "tagline": "Innovating healthcare with tech.",
             },
             {
                 "name": "E-Commerce",
-                "description": "Headless Shopify/Medusa setups, checkout flow optimization.",
-                "tagline": "Boost conversions, reduce cart abandonment."
+                "description":
+                    "Headless Shopify/Medusa setups, checkout flow optimization.",
+                "tagline": "Boost conversions, reduce cart abandonment.",
             },
             {
                 "name": "SaaS",
-                "description": "Multi-tenant architectures, usage-based billing engines.",
-                "tagline": "Scale your software, not your headaches."
-            }
-        ]
-    }
-  ]
+                "description":
+                    "Multi-tenant architectures, usage-based billing engines.",
+                "tagline": "Scale your software, not your headaches.",
+            },
+        ],
+    },
+];
 
 export const services = [
     {
