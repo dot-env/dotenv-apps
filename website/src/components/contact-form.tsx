@@ -23,21 +23,29 @@ const ContactForm = () => {
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
 
-        const form = event.currentTarget;
-        const formData = new FormData(form);
-        const token = await executeRecaptcha("contact_form");
-        formData.append("recaptcha_token", token);
-        const res = await handleContactForm(
-            Object.fromEntries(formData.entries()) as ContactForm,
-        );
+        try {
+            const form = event.currentTarget;
+            const formData = new FormData(form);
+            const token = await executeRecaptcha("contact_form");
+            formData.append("recaptcha_token", token);
+            const res = await handleContactForm(
+                Object.fromEntries(formData.entries()) as ContactForm,
+            );
 
-        toast({
-            title: res.success ? "Success" : "Error",
-            description: res.message,
-            variant: res.success ? "default" : "destructive",
-        });
+            toast({
+                title: res.success ? "Success" : "Error",
+                description: res.message,
+                variant: res.success ? "default" : "destructive",
+            });
 
-        if (res.success) form.reset();
+            if (res.success) form.reset();
+        } catch (error) {
+            toast({
+                title: "Error",
+                description: (error as Error).message,
+                variant: "destructive",
+            });
+        }
     };
 
     return (
@@ -78,7 +86,10 @@ const ContactForm = () => {
                         name="phone"
                     />
                     <Select name="company_size" required>
-                        <SelectTrigger className="w-full" aria-label="Company Size">
+                        <SelectTrigger
+                            className="w-full"
+                            aria-label="Company Size"
+                        >
                             <SelectValue placeholder="Company Size" />
                         </SelectTrigger>
                         <SelectContent>
