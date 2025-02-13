@@ -150,7 +150,7 @@ export const links = [
 
     {
         text: "Contact",
-        url: "/contact",
+        url: "/contact-us",
     },
 ];
 
@@ -358,21 +358,21 @@ export const services = [
         shortDescription: "Transform ideas into high-performance web platforms",
         description:
             "Crafting cloud-native web solutions that handle millions of users while maintaining blazing speed. From React-powered PWAs to Node.js microservices, we build digital engines for growth.",
-        url: "/services/enterprise-web-development",
+        url: "/services/web-development#",
     },
     {
         name: "Mobile-First Innovation",
         shortDescription: "Native apps that users love & investors notice",
         description:
             "Build App Store-ready iOS/Android experiences with Flutter or native stacks. Featuring AI-driven analytics, offline capabilities, and seamless API integration - mobile success, engineered.",
-        url: "/services/premium-mobile-development",
+        url: "/services/mobile-development",
     },
     {
         name: "Conversion-Centered UI/UX",
         shortDescription: "Design that drives engagement & revenue",
         description:
             "User journeys scientifically optimized to boost retention by 60%+. Our data-backed designs combine behavioral psychology with stunning aesthetics for interfaces that perform.",
-        url: "/services/ui-ux-design-conversion",
+        url: "/services/ui-ux-design#conversion",
     },
     {
         name: "Technical Leadership as Service",

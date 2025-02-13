@@ -45,7 +45,7 @@ export default function Home() {
                 />
               ))}
             </div>{" "}
-            <Link href="/contact">
+            <Link href="/contact-us">
               <Button className="flex items-center gap-2">
                 Schedule a Free Tech Audit <ArrowRight size={24} />
               </Button>
@@ -121,7 +121,7 @@ export default function Home() {
                   that meets your business needs.
                 </li>
               </ul>
-              <Link href="/contact">
+              <Link href="/contact-us">
                 <Button className="flex items-center gap-2">
                   Talk To Us <ArrowRight size={24} />
                 </Button>
@@ -223,7 +223,7 @@ export default function Home() {
             </div>
 
             <Link
-              href="/projects"
+              href="/our-work"
               aria-label="Learn more about our projects"
               className="mt-8"
             >
@@ -275,7 +275,7 @@ export default function Home() {
             </div>
           </div>
 
-          <Link href="/contact">
+          <Link href="/contact-us">
             <Button className="flex items-center gap-2">
               Get Started <ArrowRight size={24} />
             </Button>
@@ -352,7 +352,7 @@ export default function Home() {
                   </p>
                 </div>
                 <Link
-                  href="/contact"
+                  href="/contact-us"
                   className="flex justify-center md:justify-start"
                 >
                   <Button className="flex items-center gap-2">

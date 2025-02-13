@@ -41,10 +41,10 @@ export const navData = {
           url: "/services/web-development",
         },
         {
-          title: "Testing",
+          title: "Enterprise Software Testing",
           // description: "Our terms and conditions for using our services",
           // icon: <Book className="size-5 shrink-0" />,
-          url: "/services/testing",
+          url: "/services/enterprise-software-testing",
         },
         {
           title: "UI/UX Design",
@@ -71,7 +71,7 @@ export const navData = {
   ],
   mobileExtraLinks: [
     { name: "Press", url: "/press" },
-    { name: "Contact", url: "/contact" },
+    { name: "Contact", url: "/contact-us" },
     { name: "Imprint", url: "/imprint" },
     { name: "Sitemap", url: "/sitemap" },
   ],
