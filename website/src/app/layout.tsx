@@ -43,7 +43,7 @@ export default function RootLayout({
             "[mask-image:radial-gradient(300px_circle_at_center,white,transparent)]",
           )}
         />
-        <ReCaptchaProvider>
+        <ReCaptchaProvider strategy="lazyOnload" popover="manual" lang="en">
           <div className="absolute inset-2 mx-auto max-w-4xl">
             <Navbar1 {...navData} />
             <div className="flex flex-col gap-6 min-h-screen font-[family-name:var(--font-geist-sans)]">
