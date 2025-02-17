@@ -1,18 +1,23 @@
-import { generateTitle } from "#/configs/site";
 import type { Metadata } from "next";
-
+import { generateTitle } from "#/configs/site";
+import { Heading } from "#/components/page-header";
 
 export const metadata: Metadata = {
     title: generateTitle("Our Work"),
+    description: "",
 };
 
 export default function page() {
     return (
-        <div>
-            <h1>About Us</h1>
-            <p>
-                This is the about us page.
-            </p>
-        </div>
+        <>
+            <Heading
+                link="#projects"
+                name="Our Work"
+                pageDescription="From startups to enterprises, we’ve engineered solutions that scale, secure, and simplify. Here’s how we’ve transformed challenges into success stories."
+                pageTitleBold="Code That Speaks "
+                pageTitleLight="Volumes"
+            />
+            <section id="projects"></section>
+        </>
     );
 }
