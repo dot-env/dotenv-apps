@@ -19,7 +19,7 @@ export default function page() {
                 pageTitleBold="Insights That "
                 pageTitleLight="Engineer Success"
             />
-           <section id="blogs"></section>
+            <section id="blogs"></section>
         </>
     );
 }

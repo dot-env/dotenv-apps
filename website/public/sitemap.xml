@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://dotenv.co.za/</loc>
+  <lastmod>2025-03-03T20:00:06+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://dotenv.co.za/about-us</loc>
+  <lastmod>2025-03-03T20:00:06+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dotenv.co.za/our-work</loc>
+  <lastmod>2025-03-03T20:00:06+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dotenv.co.za/services</loc>
+  <lastmod>2025-03-03T20:00:06+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dotenv.co.za/blog</loc>
+  <lastmod>2025-03-03T20:00:06+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dotenv.co.za/contact-us</loc>
+  <lastmod>2025-03-03T20:00:06+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dotenv.co.za/privacy-policy</loc>
+  <lastmod>2025-03-03T20:00:06+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dotenv.co.za/services/web-development</loc>
+  <lastmod>2025-03-03T20:00:06+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dotenv.co.za/services/mobile-development</loc>
+  <lastmod>2025-03-03T20:00:06+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dotenv.co.za/services/ui-ux-design</loc>
+  <lastmod>2025-03-03T20:00:06+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dotenv.co.za/services/cto-consulting</loc>
+  <lastmod>2025-03-03T20:00:06+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dotenv.co.za/services/scalable-software-architecture</loc>
+  <lastmod>2025-03-03T20:00:06+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dotenv.co.za/services/enterprise-software-testing</loc>
+  <lastmod>2025-03-03T20:00:06+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dotenv.co.za/services/devops-cloud-engineering</loc>
+  <lastmod>2025-03-03T20:00:06+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+
+
+</urlset>

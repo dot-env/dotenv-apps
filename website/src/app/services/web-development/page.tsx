@@ -1,7 +1,6 @@
 import { generateTitle } from "#/configs/site";
 import type { Metadata } from "next";
 
-
 export const metadata: Metadata = {
     title: generateTitle("Services | Web Development"),
 };

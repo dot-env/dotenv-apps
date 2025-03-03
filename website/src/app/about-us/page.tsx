@@ -231,7 +231,7 @@ export default function page() {
             </section>
         </>
     );
-};
+}
 
 const values = [
     {
