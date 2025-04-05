@@ -1,0 +1,11 @@
+[
+    {
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target": {
+        "namespace": "android_app",
+        "package_name": "com.unax.codee",
+        "sha256_cert_fingerprints":
+          ["DC:80:22:45:98:CF:F2:C6:16:15:13:FC:D7:5B:1E:5C:61:60:19:B7:76:BC:53:87:26:CE:2F:C8:E1:8F:3B:E5"]
+      }
+    }
+  ]
