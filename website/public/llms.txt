@@ -1,0 +1,10 @@
+- [DotEnv Consulting Services](https://dotenv.co.za/): High-performance software solutions for startups and enterprises.
+- [DotEnv Consulting](https://dotenv.co.za/about-us): Crafting scalable software solutions for businesses' success.
+- [Our Work](https://dotenv.co.za/our-work): Innovative solutions for startups and enterprises, transforming challenges.
+- [Consulting Services](https://dotenv.co.za/services): Comprehensive consulting services for modernizing systems efficiently.
+- [Software Development Insights](https://dotenv.co.za/blog): Explore insights on software development and cybersecurity trends.
+- [Contact Dotenv](https://dotenv.co.za/contact-us): Contact Dotenv for consulting and engineering solutions.
+- [Privacy Policy](https://dotenv.co.za/privacy-policy): Your privacy is our priority; we protect your data.
+- [Web Development Services](https://dotenv.co.za/services/web-development): Expert web development services for your business needs.
+- [Mobile Development Services](https://dotenv.co.za/services/mobile-development): Expert mobile development services for innovative solutions.
+- [UI/UX Design Services](https://dotenv.co.za/services/ui-ux-design): Expert UI/UX design services for enhanced user experience.
