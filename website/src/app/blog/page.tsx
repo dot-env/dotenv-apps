@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
+import Link from "next/link";
+import { ArrowRight, Calendar } from "lucide-react";
 
 import { Heading } from "#/components/page-header";
+import { db } from "#/backend/db";
+import { blogs } from "#/backend/db/schema";
+import { desc, eq } from "drizzle-orm";
 
 export const metadata: Metadata = {
     title: "Blog",
@@ -11,7 +16,15 @@ export const metadata: Metadata = {
     }
 };
 
-export default function page() {
+export const revalidate = 60; // Revalidate every 60 seconds
+
+export default async function Page() {
+    const allBlogs = await db
+        .select()
+        .from(blogs)
+        .where(eq(blogs.published, "published"))
+        .orderBy(desc(blogs.createdAt));
+
     return (
         <>
             <Heading
@@ -21,7 +34,58 @@ export default function page() {
                 pageTitleBold="Insights That "
                 pageTitleLight="Engineer Success"
             />
-            <section id="blogs"></section>
+            <section id="blogs" className="mx-auto px-4 md:px-6 py-12 container">
+                {allBlogs.length === 0 ? (
+                    <div className="py-20 text-muted-foreground text-center">
+                        <p className="text-lg">No blog posts found. Check back later!</p>
+                    </div>
+                ) : (
+                    <div className="gap-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+                        {allBlogs.map((post) => (
+                            <Link
+                                key={post.id}
+                                href={`/blog/${post.slug}` as any}
+                                className="group flex flex-col justify-between bg-background hover:shadow-md border hover:border-foreground/20 rounded-2xl overflow-hidden transition-all"
+                            >
+                                {post.imageUrl ? (
+                                    <div className="bg-muted w-full aspect-video overflow-hidden">
+                                        <img
+                                            src={post.imageUrl}
+                                            alt={post.title}
+                                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                        />
+                                    </div>
+                                ) : (
+                                    <div className="flex justify-center items-center bg-muted/50 w-full aspect-video">
+                                        <div className="text-muted-foreground text-sm">No image</div>
+                                    </div>
+                                )}
+                                <div className="flex flex-col flex-1 p-6">
+                                    <div className="flex items-center gap-2 mb-3 text-muted-foreground text-xs">
+                                        <Calendar className="w-3.5 h-3.5" />
+                                        <span>
+                                            {new Intl.DateTimeFormat('en-US', {
+                                                month: 'short',
+                                                day: 'numeric',
+                                                year: 'numeric'
+                                            }).format(new Date(post.createdAt))}
+                                        </span>
+                                    </div>
+                                    <h2 className="mb-2 font-bold text-xl decoration-primary group-hover:underline underline-offset-4 tracking-tight">
+                                        {post.title}
+                                    </h2>
+                                    <p className="flex-1 mb-4 text-muted-foreground text-sm line-clamp-3">
+                                        {post.excerpt}
+                                    </p>
+                                    <div className="flex items-center mt-auto font-medium text-primary text-sm">
+                                        Read post <ArrowRight className="ml-1 w-4 h-4 transition-transform group-hover:translate-x-1" />
+                                    </div>
+                                </div>
+                            </Link>
+                        ))}
+                    </div>
+                )}
+            </section>
         </>
     );
 }

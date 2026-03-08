@@ -1,0 +1,573 @@
+{
+    "java-development": {
+        "id": "java-development",
+        "title": "Enterprise Java Development",
+        "shortDescription": "High-concurrency systems built for mission-critical reliability",
+        "description": "Leverage the power of the JVM for your most demanding enterprise workloads. We engineer high-performance, multithreaded systems and microservices that serve as the backbone for global financial and industrial platforms.",
+        "features": [
+            {
+                "title": "Spring Boot Microservices",
+                "description": "Architecting resilient, cloud-ready service ecosystems using Spring Cloud and Netflix OSS."
+            },
+            {
+                "title": "High-Throughput Engines",
+                "description": "Optimizing JVM performance and memory management for low-latency transaction processing."
+            },
+            {
+                "title": "Legacy Java Modernization",
+                "description": "Migrating brittle Java EE/J2EE monoliths to modern, containerized Spring Boot architectures."
+            },
+            {
+                "title": "Enterprise Integration Patterns",
+                "description": "Complex system orchestration using Apache Camel, Kafka, and robust messaging queues."
+            }
+        ],
+        "benefits": [
+            "Unmatched system stability and uptime",
+            "Ready for massive, multi-region horizontal scaling",
+            "Type-safe, maintainable enterprise codebases",
+            "Access to the world's most mature libraries and ecosystems"
+        ],
+        "technologies": [
+            "Java 21+",
+            "Spring Boot",
+            "Hibernate",
+            "JUnit",
+            "Maven/Gradle",
+            "Docker"
+        ]
+    },
+    "ai-development": {
+        "id": "ai-development",
+        "title": "Enterprise AI & GenAI Solutions",
+        "shortDescription": "Integrate LLMs and RAG into your core business logic",
+        "description": "Move beyond chatbots. We build production-grade AI systems that leverage RAG (Retrieval-Augmented Generation), vector databases, and fine-tuned models to automate complex knowledge work and drive decision-making.",
+        "features": [
+            {
+                "title": "RAG Architectures",
+                "description": "Connecting LLMs to your private data for accurate, hallucination-free business intelligence."
+            },
+            {
+                "title": "Custom LLM Fine-Tuning",
+                "description": "Adapting open-source and proprietary models to your specific industry terminology and logic."
+            },
+            {
+                "title": "AI Agent Orchestration",
+                "description": "Building autonomous workflows that can plan and execute multi-step business tasks."
+            },
+            {
+                "title": "Predictive Analytics",
+                "description": "Machine learning models for churn prediction, demand forecasting, and anomaly detection."
+            }
+        ],
+        "benefits": [
+            "Drastic reduction in manual data processing",
+            "24/7 intelligent customer & internal support",
+            "Data-driven strategic foresight",
+            "Automated content and report generation"
+        ],
+        "technologies": [
+            "Python",
+            "PyTorch",
+            "LangChain",
+            "OpenAI/Anthropic",
+            "Pinecone/Weaviate",
+            "AWS SageMaker"
+        ]
+    },
+    "cloud-native-development": {
+        "id": "cloud-native-development",
+        "title": "Cloud-Native Product Engineering",
+        "shortDescription": "Built in the cloud, for the cloud",
+        "description": "Transition from 'hosting' to 'native'. We design elastic, serverless-first applications that utilize the full power of modern cloud providers to eliminate operational overhead and maximize agility.",
+        "features": [
+            {
+                "title": "Serverless First Design",
+                "description": "Building applications that scale to zero and handle spikes without manual intervention."
+            },
+            {
+                "title": "Observability & Tracing",
+                "description": "Full-stack visibility into distributed systems using OpenTelemetry and distributed tracing."
+            },
+            {
+                "title": "Edge Computing",
+                "description": "Running critical logic at the edge to provide sub-50ms global response times."
+            },
+            {
+                "title": "Immutable Infrastructure",
+                "description": "Eliminating 'snowflake' servers with 100% Terraform/OpenTofu automated environments."
+            }
+        ],
+        "benefits": [
+            "Pay-as-you-go infrastructure cost models",
+            "Industry-leading disaster recovery RTO/RPO",
+            "Global low-latency user experiences",
+            "Security-by-design at the network layer"
+        ],
+        "technologies": [
+            "AWS/Azure/GCP",
+            "Kubernetes",
+            "Lambda/Functions",
+            "Terraform",
+            "Cloudflare Workers",
+            "Prometheus"
+        ]
+    },
+    "web-development": {
+        "id": "web-development",
+        "title": "Enterprise Web Development",
+        "shortDescription": "Transform ideas into high-performance web platforms",
+        "description": "Crafting cloud-native web solutions that handle millions of users while maintaining blazing speed. From React-powered PWAs to Node.js and Java-based microservices, we build digital engines for growth.",
+        "features": [
+            {
+                "title": "Custom Web Applications",
+                "description": "Tailored web apps built to handle complex business logic and provide seamless user experiences."
+            },
+            {
+                "title": "Progressive Web Apps (PWAs)",
+                "description": "Deliver native-like speeds and offline capabilities straight from the browser."
+            },
+            {
+                "title": "E-Commerce Platforms",
+                "description": "Scalable, secure, and conversion-optimized storefronts from headless Shopify to custom builds."
+            },
+            {
+                "title": "Content Management",
+                "description": "Headless CMS integration (Sanity, Strapi) for flexible, fast content delivery."
+            }
+        ],
+        "benefits": [
+            "Lightning-fast load times for higher conversion",
+            "Scales automatically with user traffic",
+            "Enterprise-grade security built-in",
+            "SEO-friendly out of the box"
+        ],
+        "technologies": [
+            "React",
+            "Next.js",
+            "Node.js",
+            "Java",
+            "TypeScript",
+            "PostgreSQL",
+            "Redis"
+        ]
+    },
+    "mobile-development": {
+        "id": "mobile-development",
+        "title": "Mobile-First Innovation",
+        "shortDescription": "Native apps that users love & investors notice",
+        "description": "Build App Store-ready iOS/Android experiences with React Native or native stacks. Featuring AI-driven analytics, offline capabilities, and seamless API integration - mobile success, engineered.",
+        "features": [
+            {
+                "title": "Cross-Platform Apps",
+                "description": "Code once, run everywhere with React Native. Reduce time-to-market without sacrificing quality."
+            },
+            {
+                "title": "Native iOS & Android",
+                "description": "High-performance apps engineered with Swift and Kotlin for hardware-intensive requirements."
+            },
+            {
+                "title": "App Store Optimization",
+                "description": "Strategic deployment, compliance checks, and ASO to maximize your download rates."
+            },
+            {
+                "title": "Offline-First Sync",
+                "description": "Apps that remain fully functional without internet, syncing data automatically when reconnected."
+            }
+        ],
+        "benefits": [
+            "Unified codebase reduces maintenance costs",
+            "Native device API access (Camera, GPS, Biometrics)",
+            "Strict App Store compliance support",
+            "Engaging animations and micro-interactions"
+        ],
+        "technologies": [
+            "React Native",
+            "Swift",
+            "Kotlin",
+            "Expo",
+            "SQLite",
+            "Firebase"
+        ]
+    },
+    "ui-ux-design": {
+        "id": "ui-ux-design",
+        "title": "Conversion-Centered UI/UX",
+        "shortDescription": "Design that drives engagement & revenue",
+        "description": "User journeys scientifically optimized to boost retention by 60%+. Our data-backed designs combine behavioral psychology with stunning aesthetics for interfaces that perform.",
+        "features": [
+            {
+                "title": "User Research",
+                "description": "In-depth user interviews, persona development, and journey mapping."
+            },
+            {
+                "title": "Wireframing & Prototyping",
+                "description": "Rapid interactive prototypes to validate ideas before writing a single line of code."
+            },
+            {
+                "title": "Visual Design & Branding",
+                "description": "Stunning, cohesive design systems that build trust and elevate your brand."
+            },
+            {
+                "title": "Usability Testing",
+                "description": "A/B testing and Hotjar analysis to continuously optimize the conversion funnel."
+            }
+        ],
+        "benefits": [
+            "Lower bounce rates and higher engagement",
+            "Streamlined user onboarding paths",
+            "Accessible designs meeting WCAG standards",
+            "Developer-ready Figma handoffs"
+        ],
+        "technologies": [
+            "Figma",
+            "Framer",
+            "Adobe CC",
+            "Hotjar",
+            "Storybook",
+            "Tailwind CSS"
+        ]
+    },
+    "cto-consulting": {
+        "id": "cto-consulting",
+        "title": "Technical Leadership as Service",
+        "shortDescription": "Your outsourced CTO team",
+        "description": "Get Fortune 500-grade architecture guidance without the overhead. We blueprint scalable systems, lead DevOps transformations, and de-risk your tech roadmap.",
+        "features": [
+            {
+                "title": "Tech Stack Audits",
+                "description": "Comprehensive review of your current stack to identify bottlenecks, security risks, and cost savings."
+            },
+            {
+                "title": "Architecture Blueprinting",
+                "description": "Designing future-proof architectures capable of scaling 10x with your business."
+            },
+            {
+                "title": "Team & Process Scaling",
+                "description": "Implementing Agile methodologies and CI/CD pipelines to double development velocity."
+            },
+            {
+                "title": "Vendor & Cloud Negotiation",
+                "description": "Optimizing SaaS and cloud provider costs to maximize your runway."
+            }
+        ],
+        "benefits": [
+            "Executive-level technical strategy on day one",
+            "Avoid costly complete rewrites",
+            "Align technical KPIs with business goals",
+            "Objective third-party engineering audits"
+        ],
+        "technologies": [
+            "C-Suite Strategy",
+            "Agile/Scrum",
+            "Cloud Architecture (AWS/GCP/Azure)",
+            "Cost Optimization",
+            "Due Diligence"
+        ]
+    },
+    "scalable-software-architecture": {
+        "id": "scalable-software-architecture",
+        "title": "Future-Proof Architecture",
+        "shortDescription": "Systems that scale at startup speed",
+        "description": "Design serverless ecosystems, event-driven architectures, and fault-tolerant distributed systems. Sleep well knowing your foundation handles 10x growth overnight.",
+        "features": [
+            {
+                "title": "Microservices Migration",
+                "description": "Safely decouple monolithic applications into independently deployable microservices."
+            },
+            {
+                "title": "Event-Driven Systems",
+                "description": "Implement Kafka or RabbitMQ to build highly responsive, asynchronous architectures."
+            },
+            {
+                "title": "Serverless Computing",
+                "description": "AWS Lambda and serverless backends that automatically scale to zero."
+            },
+            {
+                "title": "High Availability Design",
+                "description": "Multi-region deployments and automated failovers ensuring 99.99% uptime."
+            }
+        ],
+        "benefits": [
+            "Handle massive traffic spikes seamlessly",
+            "Reduce infrastructure costs with Serverless",
+            "Prevent cascading system failures",
+            "Faster isolated deployments"
+        ],
+        "technologies": [
+            "Kubernetes",
+            "Java/Spring Cloud",
+            "Kafka",
+            "Docker",
+            "Terraform",
+            "gRPC"
+        ]
+    },
+    "enterprise-software-testing": {
+        "id": "enterprise-software-testing",
+        "title": "Bulletproof Quality Assurance",
+        "shortDescription": "Ship with zero-critical-issues confidence",
+        "description": "Our military-grade testing combines penetration testing, load simulation, and mutation testing to eliminate risks before they reach production.",
+        "features": [
+            {
+                "title": "Automated End-to-End Testing",
+                "description": "Playwright/Cypress suites that test real-world user flows on every commit."
+            },
+            {
+                "title": "Load & Stress Testing",
+                "description": "Simulating millions of concurrent users to find breaking points before Black Friday."
+            },
+            {
+                "title": "Security & Penetration Testing",
+                "description": "Identifying OWASP Top 10 vulnerabilities and patching zero-day exploits."
+            },
+            {
+                "title": "Continuous Integration QA",
+                "description": "Integrating quality gates directly into your CI/CD pipeline."
+            }
+        ],
+        "benefits": [
+            "Drastically reduced production bugs",
+            "Secure user data and compliance (SOC2/GDPR)",
+            "Confidence to deploy multiple times a day",
+            "Comprehensive test coverage reports"
+        ],
+        "technologies": [
+            "Playwright",
+            "Cypress",
+            "Jest",
+            "K6",
+            "SonarQube",
+            "OWASP ZAP"
+        ]
+    },
+    "devops-cloud-engineering": {
+        "id": "devops-cloud-engineering",
+        "title": "DevOps & Cloud Engineering",
+        "shortDescription": "Automate your deployment pipeline",
+        "description": "From CI/CD pipelines to Kubernetes clusters, we automate your infrastructure to scale with your business. Sleep well knowing your systems are secure, scalable, and cost-efficient.",
+        "features": [
+            {
+                "title": "Infrastructure as Code",
+                "description": "Terraform and CloudFormation templates for reproducible, version-controlled environments."
+            },
+            {
+                "title": "CI/CD Automation",
+                "description": "GitHub Actions and GitLab CI setups that take code from commit to production in minutes."
+            },
+            {
+                "title": "Kubernetes Orchestration",
+                "description": "Managing containerized applications for unbeatable scalability and self-healing."
+            },
+            {
+                "title": "Monitoring & Observability",
+                "description": "Datadog or Prometheus setups for real-time alerts and deep system insights."
+            }
+        ],
+        "benefits": [
+            "Zero-downtime deployments",
+            "Rapid disaster recovery (minutes, not days)",
+            "Developer productivity boost via automation",
+            "Optimized cloud spending"
+        ],
+        "technologies": [
+            "AWS/Azure/GCP",
+            "Kubernetes",
+            "Terraform",
+            "GitHub Actions",
+            "Docker",
+            "Datadog"
+        ]
+    },
+    "legacy-system-modernization": {
+        "id": "legacy-system-modernization",
+        "title": "Legacy System Modernization",
+        "shortDescription": "Revitalize your outdated software stack",
+        "description": "Upgrade your legacy systems to cloud-native, microservices-based architectures. We refactor monoliths into scalable, maintainable systems that cut costs by 70%.",
+        "features": [
+            {
+                "title": "Strangler Fig Migration",
+                "description": "Gradually replacing legacy components with modern services without downtime."
+            },
+            {
+                "title": "Cloud Replatforming",
+                "description": "Moving on-premise servers to scalable, managed cloud infrastructure."
+            },
+            {
+                "title": "Codebase Refactoring",
+                "description": "Updating outdated languages and frameworks (e.g., PHP to Java/Node.js/Go)."
+            },
+            {
+                "title": "Data Migration",
+                "description": "Safe, zero-loss migrations from legacy databases to modern relational or NoSQL stores."
+            }
+        ],
+        "benefits": [
+            "Eliminate technical debt and maintenance headaches",
+            "Attract top engineering talent with modern stacks",
+            "Massive reduction in server costs",
+            "Unlock new feature velocity"
+        ],
+        "technologies": [
+            "Java/Spring Boot",
+            "Node.js",
+            "Go",
+            "PostgreSQL",
+            "AWS Migration Hub",
+            "Docker",
+            "GraphQL"
+        ]
+    },
+    "software-consulting": {
+        "id": "software-consulting",
+        "title": "Software Consulting",
+        "shortDescription": "Expert advice for your digital journey",
+        "description": "Get strategic guidance on technology investments, product-market fit, and digital transformation. Our consultants have a track record of turning ideas into profitable software products.",
+        "features": [
+            {
+                "title": "Digital Transformation Strategy",
+                "description": "Roadmaps to digitize brick-and-mortar operations and internal workflows."
+            },
+            {
+                "title": "Product Discovery",
+                "description": "Validating product-market fit through rapid prototyping and market analysis."
+            },
+            {
+                "title": "Code Audits",
+                "description": "Deep-dive analysis of codebase health, best practices, and security flaws."
+            },
+            {
+                "title": "Compliance & Security",
+                "description": "Ensuring your software meets HIPAA, GDPR, or SOC2 regulatory standards."
+            }
+        ],
+        "benefits": [
+            "Data-backed technology investments",
+            "Clear, actionable technical roadmaps",
+            "De-risk product launches",
+            "Align business and engineering objectives"
+        ],
+        "technologies": [
+            "Strategy",
+            "Compliance",
+            "Product Management",
+            "Due Diligence",
+            "System Design"
+        ]
+    },
+    "backend-development": {
+        "id": "backend-development",
+        "title": "Backend Engineering & APIs",
+        "shortDescription": "Robust engines powering your digital products",
+        "description": "Secure, scalable, and lightning-fast backend systems. We build REST and GraphQL APIs using Java, Node.js, Python, or Go, designed to handle immense data loads reliably.",
+        "features": [
+            {
+                "title": "Custom API Development",
+                "description": "RESTful and GraphQL APIs that serve fast, structured data to any frontend."
+            },
+            {
+                "title": "Database Architecture",
+                "description": "Designing highly normalized relational models or highly performant NoSQL document structures."
+            },
+            {
+                "title": "Third-Party Integrations",
+                "description": "Seamlessly connecting Stripe, Twilio, Salesforce, and other enterprise APIs."
+            },
+            {
+                "title": "Authentication & Authorization",
+                "description": "Implementing OAuth2, JWTs, and SSO to keep user data fully protected."
+            }
+        ],
+        "benefits": [
+            "Blazing-fast data retrieval",
+            "Bank-grade security and encryption",
+            "Easily integration with multiple platforms",
+            "Scalable database queries"
+        ],
+        "technologies": [
+            "Java/Spring",
+            "Node.js",
+            "Python",
+            "Go",
+            "PostgreSQL",
+            "MongoDB",
+            "Redis",
+            "GraphQL"
+        ]
+    },
+    "frontend-development": {
+        "id": "frontend-development",
+        "title": "Frontend Engineering",
+        "shortDescription": "Pixel-perfect interfaces that captivate users",
+        "description": "Transforming complex data into intuitive, lightning-fast user interfaces. We specialize in React, Next.js, and modern CSS to craft experiences users love.",
+        "features": [
+            {
+                "title": "Single Page Applications",
+                "description": "Fluid, app-like experiences powered by React and Vue without page reloads."
+            },
+            {
+                "title": "Server-Side Rendering",
+                "description": "Next.js applications optimized for instant first-contentful-paint and elite SEO."
+            },
+            {
+                "title": "Micro-Frontends",
+                "description": "Breaking down massive frontend monoliths for enterprise scale."
+            },
+            {
+                "title": "Web Accessibility (a11y)",
+                "description": "Inclusive design ensuring ADA compliance and accessibility for all users."
+            }
+        ],
+        "benefits": [
+            "Smooth, 60fps animations and transitions",
+            "Highly responsive on all devices",
+            "Excellent Core Web Vitals",
+            "Maintainable component-driven architecture"
+        ],
+        "technologies": [
+            "React",
+            "Next.js",
+            "TypeScript",
+            "Tailwind CSS",
+            "Redux/Zustand",
+            "Framer Motion"
+        ]
+    },
+    "seo": {
+        "id": "seo",
+        "title": "Technical SEO & Performance",
+        "shortDescription": "Engineered for maximum search visibility",
+        "description": "Go beyond basic keywords. We engineer technical SEO from the ground up—optimizing Core Web Vitals, implementing dynamic sitemaps, and structuring schema markup to dominate search rankings.",
+        "features": [
+            {
+                "title": "Core Web Vitals Optimization",
+                "description": "Achieving 90+ Lighthouse scores by optimizing LCP, FID, and CLS metrics."
+            },
+            {
+                "title": "Structured Data & Schema",
+                "description": "Implementing JSON-LD schema markup so search engines perfectly understand your content."
+            },
+            {
+                "title": "Dynamic Rendering",
+                "description": "Server-side rendering (SSR) and Static Site Generation (SSG) for instant indexing."
+            },
+            {
+                "title": "Technical Audits",
+                "description": "Fixing broken links, canonicals, redirect chains, and crawl budget issues."
+            }
+        ],
+        "benefits": [
+            "Higher organic search rankings",
+            "Increased click-through rates (CTR) with rich snippets",
+            "Lower user bounce rates due to fast speeds",
+            "Automated SEO scalability for massive sites"
+        ],
+        "technologies": [
+            "Next.js",
+            "Google Search Console",
+            "Lighthouse",
+            "Schema.org",
+            "Vercel Analytics"
+        ]
+    }
+}

@@ -32,45 +32,51 @@ export const navData: {
       url: "/services",
       items: [
         {
-          title: "Backend Development",
-          // description: "Get all the answers you need right here",
-          // icon: <Zap className="size-5 shrink-0" />,
-          url: "/services/backend-development",
+          title: "Enterprise Java",
+          url: "/services/java-development" as any,
         },
         {
-          title: "Frontend Development",
-          // description: "We are here to help you with any questions you have",
-          // icon: <Sunset className="size-5 shrink-0" />,
-          url: "/services/frontend-development",
+          title: "AI & GenAI Solutions",
+          url: "/services/ai-development" as any,
         },
         {
-          title: "Mobile Development",
-          // description: "Check the current status of our services and APIs",
-          // icon: <Trees className="size-5 shrink-0" />,
-          url: "/services/mobile-development",
+          title: "Cloud-Native Engineering",
+          url: "/services/cloud-native-development" as any,
         },
         {
-          title: "Web Development",
-          // description: "Our terms and conditions for using our services",
-          // icon: <Book className="size-5 shrink-0" />,
+          title: "Custom Web Applications",
           url: "/services/web-development",
         },
         {
-          title: "Enterprise Software Testing",
-          // description: "Our terms and conditions for using our services",
-          // icon: <Book className="size-5 shrink-0" />,
+          title: "Mobile-First Innovation",
+          url: "/services/mobile-development",
+        },
+        {
+          title: "Backend Engineering",
+          url: "/services/backend-development",
+        },
+        {
+          title: "Scalable Architecture",
+          url: "/services/scalable-software-architecture",
+        },
+        {
+          title: "Enterprise QA & Testing",
           url: "/services/enterprise-software-testing",
         },
         {
+          title: "DevOps Automation",
+          url: "/services/devops-cloud-engineering",
+        },
+        {
           title: "UI/UX Design",
-          // description: "Get in touch with us for more information",
-          // icon: <Zap className="size-5 shrink-0" />,
           url: "/services/ui-ux-design",
         },
         {
-          title: "SEO",
-          // description: "Check the current status of our services and APIs",
-          // icon: <Trees className="size-5 shrink-0" />,
+          title: "Legacy Modernization",
+          url: "/services/legacy-system-modernization",
+        },
+        {
+          title: "Technical SEO",
           url: "/services/seo",
         },
       ],
@@ -86,11 +92,5 @@ export const navData: {
   ],
   mobileExtraLinks: [
     { name: "Contact", url: "/contact-us" },
-    // { name: "Imprint", url: "/imprint" },
-    // { name: "Sitemap", url: "/sitemap" },
   ],
-  // auth: {
-  //   login: { text: "Log in", url: "/login" },
-  //   signup: { text: "Sign up", url: "/signup" },
-  // },
 };

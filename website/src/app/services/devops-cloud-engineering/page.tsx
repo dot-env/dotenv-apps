@@ -1,20 +1,20 @@
 import type { Metadata } from "next";
+import { ServiceTemplate } from "#/components/service-template";
+import servicesData from "#/data/services.json";
+
+const serviceId = "devops-cloud-engineering";
+const data = (servicesData as any)[serviceId];
 
 export const metadata: Metadata = {
-    title: "Services | DevOps & Cloud Engineering",
+    title: `Services | ${data?.title || "Devops Cloud Engineering"}`,
+    description: data?.shortDescription || "Professional ${serviceId} services engineered for success.",
     openGraph: {
-        title: "Services | DevOps & Cloud Engineering - Dotenv",
-        description: "Explore the Services | DevOps & Cloud Engineering services delivered by Dotenv Consulting.",
+        title: `Services | ${data?.title || "Devops Cloud Engineering"} - Dotenv`,
+        description: data?.description || "Explore our premium ${serviceId} consulting and development services.",
     }
 };
 
-export default function page() {
-    return (
-        <div>
-            <h1>About Us</h1>
-            <p>
-                This is the about us page.
-            </p>
-        </div>
-    );
+export default function Page() {
+    if (!data) return null;
+    return <ServiceTemplate data={data} />;
 }

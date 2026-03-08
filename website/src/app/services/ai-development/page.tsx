@@ -2,14 +2,14 @@ import type { Metadata } from "next";
 import { ServiceTemplate } from "#/components/service-template";
 import servicesData from "#/data/services.json";
 
-const serviceId = "backend-development";
+const serviceId = "ai-development";
 const data = (servicesData as any)[serviceId];
 
 export const metadata: Metadata = {
-    title: `Services | ${data?.title || "Backend Development"}`,
+    title: `Services | ${data?.title || "Ai Development"}`,
     description: data?.shortDescription || "Professional ${serviceId} services engineered for success.",
     openGraph: {
-        title: `Services | ${data?.title || "Backend Development"} - Dotenv`,
+        title: `Services | ${data?.title || "Ai Development"} - Dotenv`,
         description: data?.description || "Explore our premium ${serviceId} consulting and development services.",
     }
 };

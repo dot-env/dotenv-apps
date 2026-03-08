@@ -24,3 +24,22 @@ export const contacts = customSchema.table(
     { emailIdx: table.email, unique: true },
   ])
 );
+
+export const blogs = customSchema.table(
+  "website_blogs",
+  {
+    id: integer().primaryKey().generatedAlwaysAsIdentity(),
+    title: text().notNull(),
+    slug: text().notNull().unique(),
+    excerpt: text().notNull(),
+    content: text().notNull(),
+    published: text().notNull().default("published"),
+    author: text().notNull().default("Admin"),
+    imageUrl: text(),
+    createdAt: timestamp("created_at").notNull().defaultNow(),
+    updatedAt: timestamp("updated_at").notNull().defaultNow(),
+  },
+  (table) => ([
+    { slugIdx: table.slug, unique: true },
+  ])
+);
