@@ -248,21 +248,22 @@ export const meta: Metadata = {
 export const projects = [
     {
         name: "PipAlert",
-        description: "A stock market trading platform.",
+        description: "An institutional-grade forex signaling ecosystem enabling expert traders to monetize their insights through branded channels, featuring millisecond-latency push notifications and integrated subscription management.",
         url: "https://pipalert.co.za",
         image: "https://pipalert.co.za/logo.svg",
-        status: "Live",
-        industry: "Finance",
+        status: "Production",
+        industry: "FinTech",
+        tags: ["React Native", "Dodo Payments", "Next.js", "App Store"]
     },
     {
         name: "Local Lifestyle",
-        description: "A local business directory.",
+        description: "A premier digital hospitality platform for a luxury lounge and events venue, featuring a sophisticated venue reservation system, dynamic menu engine, and integrated local payment processing.",
         status: "Live",
-        industry: "Finance",
-        url: "https://locallifestyle.co.za",
-        image:
-            "https://www.locallifestyle.co.za/_next/image?url=%2Flogo.png&w=256&q=75",
-    },
+        industry: "Hospitality",
+        url: "https://www.locallifestyle.co.za",
+        image: "https://www.locallifestyle.co.za/_next/image?url=%2Flogo.png&w=256&q=75",
+        tags: ["Next.js", "TypeScript", "Convex", "Ozow"]
+    }
 ];
 
 export const skills = [
