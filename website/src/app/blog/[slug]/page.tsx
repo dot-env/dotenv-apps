@@ -13,6 +13,7 @@ import { JsonLd } from "#/components/json-ld";
 import type { BlogPosting, WithContext } from "schema-dts";
 import { siteConfig } from "#/configs/site";
 import Author from "#/components/post/author";
+import { cacheTag } from "next/cache";
 
 interface BlogPostPageProps {
     params: Promise<{
@@ -43,9 +44,9 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
     };
 }
 
-export const revalidate = 60; // Revalidate every 60 seconds
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
+    "use cache";
     const { slug } = await params;
     const [post] = await db.select().from(blogs).where(eq(blogs.slug, slug)).limit(1);
 
@@ -79,6 +80,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             "@id": `${siteConfig.url}/blog/${post.slug}`
         }
     };
+
+    cacheTag("blog-post" + post.id);
 
     return (
         <article className="pb-20 min-h-screen">

@@ -9,6 +9,7 @@ import { desc, eq } from "drizzle-orm";
 import { JsonLd } from "#/components/json-ld";
 import type { Blog, WithContext } from "schema-dts";
 import { siteConfig } from "#/configs/site";
+import { cacheTag } from "next/cache";
 
 export const metadata: Metadata = {
     title: "Blog",
@@ -19,9 +20,9 @@ export const metadata: Metadata = {
     }
 };
 
-export const revalidate = 60; // Revalidate every 60 seconds
 
 export default async function Page() {
+    "use cache";
     const allBlogs = await db
         .select()
         .from(blogs)
@@ -49,6 +50,8 @@ export default async function Page() {
             "datePublished": new Date(post.createdAt).toISOString()
         }))
     };
+
+    cacheTag("blog");
 
     return (
         <>

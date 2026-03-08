@@ -10,7 +10,9 @@ const nextConfig: NextConfig = {
     ],
   },
   typedRoutes: true,
+  cacheComponents: true,
   experimental: {
+
     typedEnv: true,
     cssChunking: true,
   },
