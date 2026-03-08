@@ -11,6 +11,9 @@ import type { Metadata } from "next";
 
 import { Button } from "#/components/ui/button";
 import { Heading } from "#/components/page-header";
+import { JsonLd } from "#/components/json-ld";
+import type { AboutPage, WithContext } from "schema-dts";
+import { siteConfig } from "#/configs/site";
 
 export const metadata: Metadata = {
     title: "About Us",
@@ -23,8 +26,23 @@ export const metadata: Metadata = {
 };
 
 export default function page() {
+    const aboutJsonLd: WithContext<AboutPage> = {
+        "@context": "https://schema.org",
+        "@type": "AboutPage",
+        "name": "About Us | Dotenv",
+        "description": "At DotEnv Consulting, we craft software solutions that scale, secure, and simplify.",
+        "url": `${siteConfig.url}/about-us`,
+        "mainEntity": {
+            "@type": "Organization",
+            "name": "Dotenv Consulting",
+            "foundingDate": "2024",
+            "description": "A premier software development agency specializing in scalable web and mobile applications."
+        }
+    };
+
     return (
         <>
+            <JsonLd data={aboutJsonLd} />
             <Heading
                 link="#our-story"
                 pageDescription="At DotEnv Consulting, we don’t just write code—we craft solutions that scale, secure, and simplify."

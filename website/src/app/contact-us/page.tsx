@@ -1,5 +1,8 @@
 import ContactForm from "#/components/contact-form";
 import type { Metadata } from "next";
+import { JsonLd } from "#/components/json-ld";
+import type { ContactPage, WithContext } from "schema-dts";
+import { siteConfig } from "#/configs/site";
 
 export const metadata: Metadata = {
   title: "Contact Us",
@@ -11,8 +14,17 @@ export const metadata: Metadata = {
 };
 
 export default function page() {
+  const contactJsonLd: WithContext<ContactPage> = {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Contact Us | Dotenv",
+    "description": "Get in touch with Dotenv for a free consultation on your next software project.",
+    "url": `${siteConfig.url}/contact-us`
+  };
+
   return (
     <section id="contact" aria-label="Contact Us">
+      <JsonLd data={contactJsonLd} />
       <div className="flex justify-center items-center gap-8 my-16 px-8 md:px-0 align-middle">
         <div className="justify-center items-center gap-8 grid grid-cols-1">
           <div className="justify-center items-center gap-8">

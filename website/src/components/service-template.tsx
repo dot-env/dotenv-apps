@@ -2,6 +2,8 @@ import React from "react";
 import { CheckCircle2, Cpu, Rocket, ShieldCheck } from "lucide-react";
 import { Button } from "#/components/ui/button";
 import Link from "next/link";
+import { JsonLd } from "#/components/json-ld";
+import type { Service, WithContext } from "schema-dts";
 
 interface Feature {
     title: string;
@@ -19,8 +21,34 @@ interface ServiceData {
 }
 
 export const ServiceTemplate = ({ data }: { data: ServiceData }) => {
+    const serviceJsonLd: WithContext<Service> = {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": data.title,
+        "description": data.description,
+        "provider": {
+            "@type": "Organization",
+            "name": "Dotenv",
+            "url": "https://www.dotenv.co.za"
+        },
+        "areaServed": "Worldwide",
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": data.title,
+            "itemListElement": data.features.map((feature, index) => ({
+                "@type": "Offer",
+                "itemOffered": {
+                    "@type": "Service",
+                    "name": feature.title,
+                    "description": feature.description
+                }
+            }))
+        }
+    };
+
     return (
         <div className="flex flex-col gap-16 py-12 md:py-24">
+            <JsonLd data={serviceJsonLd} />
             {/* Hero Section */}
             <section className="mx-auto px-4 md:px-6 container">
                 <div className="max-w-3xl">

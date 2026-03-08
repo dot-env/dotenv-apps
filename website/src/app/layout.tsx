@@ -10,6 +10,9 @@ import { ReCaptchaProvider } from "next-recaptcha-v3";
 import { Toaster } from "#/components/ui/toaster";
 import Footer from "#/components/footer";
 import { Analytics } from "@vercel/analytics/react";
+import { JsonLd } from "#/components/json-ld";
+import { siteConfig } from "#/configs/site";
+import type { Organization, WithContext } from "schema-dts";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,8 +31,39 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const organizationJsonLd: WithContext<Organization> = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: siteConfig.name,
+    url: siteConfig.url,
+    logo: `${siteConfig.url}/logo.png`,
+    sameAs: [
+      siteConfig.links.twitter,
+      "https://www.linkedin.com/company/dotenv_co",
+      "https://www.facebook.com/dotenv_co",
+      "https://www.instagram.com/dotenv_co",
+    ],
+    contactPoint: {
+      "@type": "ContactPoint",
+      telephone: "+27-68-172-1606",
+      contactType: "customer service",
+      email: "team@dotenv.co.za",
+      areaServed: "ZA",
+      availableLanguage: "English",
+    },
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Johannesburg",
+      addressRegion: "GP",
+      addressCountry: "ZA",
+    },
+  };
+
   return (
     <html lang="en">
+      <head>
+        <JsonLd data={organizationJsonLd} />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased scroll-smooth`}
       >

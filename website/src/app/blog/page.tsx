@@ -6,6 +6,9 @@ import { Heading } from "#/components/page-header";
 import { db } from "#/backend/db";
 import { blogs } from "#/backend/db/schema";
 import { desc, eq } from "drizzle-orm";
+import { JsonLd } from "#/components/json-ld";
+import type { Blog, WithContext } from "schema-dts";
+import { siteConfig } from "#/configs/site";
 
 export const metadata: Metadata = {
     title: "Blog",
@@ -25,8 +28,31 @@ export default async function Page() {
         .where(eq(blogs.published, "published"))
         .orderBy(desc(blogs.createdAt));
 
+    const blogJsonLd: WithContext<Blog> = {
+        "@context": "https://schema.org",
+        "@type": "Blog",
+        "name": "Dotenv Blog",
+        "description": "Dive into the latest in software development, cloud architecture, and cybersecurity.",
+        "url": `${siteConfig.url}/blog`,
+        "publisher": {
+            "@type": "Organization",
+            "name": "Dotenv",
+            "logo": {
+                "@type": "ImageObject",
+                "url": `${siteConfig.url}/logo.png`
+            }
+        },
+        "blogPost": allBlogs.map((post) => ({
+            "@type": "BlogPosting",
+            "headline": post.title,
+            "url": `${siteConfig.url}/blog/${post.slug}`,
+            "datePublished": new Date(post.createdAt).toISOString()
+        }))
+    };
+
     return (
         <>
+            <JsonLd data={blogJsonLd} />
             <Heading
                 link="#blogs"
                 name="Blog"
