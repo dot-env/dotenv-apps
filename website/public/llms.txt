@@ -1,10 +1,24 @@
-- [DotEnv Consulting Services](https://dotenv.co.za/): High-performance software solutions for startups and enterprises.
-- [DotEnv Consulting](https://dotenv.co.za/about-us): Crafting scalable software solutions for businesses' success.
-- [Our Work](https://dotenv.co.za/our-work): Innovative solutions for startups and enterprises, transforming challenges.
-- [Consulting Services](https://dotenv.co.za/services): Comprehensive consulting services for modernizing systems efficiently.
-- [Software Development Insights](https://dotenv.co.za/blog): Explore insights on software development and cybersecurity trends.
-- [Contact Dotenv](https://dotenv.co.za/contact-us): Contact Dotenv for consulting and engineering solutions.
-- [Privacy Policy](https://dotenv.co.za/privacy-policy): Your privacy is our priority; we protect your data.
-- [Web Development Services](https://dotenv.co.za/services/web-development): Expert web development services for your business needs.
-- [Mobile Development Services](https://dotenv.co.za/services/mobile-development): Expert mobile development services for innovative solutions.
-- [UI/UX Design Services](https://dotenv.co.za/services/ui-ux-design): Expert UI/UX design services for enhanced user experience.
+# LLMs Index
+
+## services
+
+- [Services | Enterprise Java Development - Dotenv | Software Development](https://www.dotenv.co.za/services/java-development): High-concurrency systems built for mission-critical reliability
+- [Services | Enterprise AI & GenAI Solutions - Dotenv | Software Development](https://www.dotenv.co.za/services/ai-development): Integrate LLMs and RAG into your core business logic
+- [Services | Cloud-Native Product Engineering - Dotenv | Software Development](https://www.dotenv.co.za/services/cloud-native-development): Built in the cloud, for the cloud
+- [Services | Enterprise Web Development - Dotenv | Software Development](https://www.dotenv.co.za/services/web-development): Transform ideas into high-performance web platforms
+- [Services | Mobile-First Innovation - Dotenv | Software Development](https://www.dotenv.co.za/services/mobile-development): Native apps that users love & investors notice
+- [Services | Backend Engineering & APIs - Dotenv | Software Development](https://www.dotenv.co.za/services/backend-development): Robust engines powering your digital products
+- [Services | Future-Proof Architecture - Dotenv | Software Development](https://www.dotenv.co.za/services/scalable-software-architecture): Systems that scale at startup speed
+- [Services | Bulletproof Quality Assurance - Dotenv | Software Development](https://www.dotenv.co.za/services/enterprise-software-testing): Ship with zero-critical-issues confidence
+- [Services | DevOps & Cloud Engineering - Dotenv | Software Development](https://www.dotenv.co.za/services/devops-cloud-engineering): Automate your deployment pipeline
+- [Services | Conversion-Centered UI/UX - Dotenv | Software Development](https://www.dotenv.co.za/services/ui-ux-design): Design that drives engagement & revenue
+- [Services | Legacy System Modernization - Dotenv | Software Development](https://www.dotenv.co.za/services/legacy-system-modernization): Revitalize your outdated software stack
+- [Services | Technical SEO & Performance - Dotenv | Software Development](https://www.dotenv.co.za/services/seo): Engineered for maximum search visibility
+
+- [Privacy Policy - Dotenv | Software Development](https://www.dotenv.co.za/privacy-policy): Dotenv is a premier software development agency specializing in scalable web and mobile applications, digital transformation, and enterprise cloud solutions.
+- [Dotenv | Software Development Agency](https://www.dotenv.co.za): Dotenv is a premier software development agency specializing in scalable web and mobile applications, digital transformation, and enterprise cloud solutions.
+- [About Us - Dotenv | Software Development](https://www.dotenv.co.za/about-us): At DotEnv Consulting, we don’t just write code—we craft solutions that scale, secure, and simplify.
+- [Our Work - Dotenv | Software Development](https://www.dotenv.co.za/our-work): From startups to enterprises, explore our engineered solutions that scale, secure, and simplify.
+- [Services - Dotenv | Software Development](https://www.dotenv.co.za/services): Whether you're building from scratch or modernizing legacy systems, our end-to-end software services deliver results—fast, secure, and scalable.
+- [Blog - Dotenv | Software Development](https://www.dotenv.co.za/blog): Dive into the latest in software development, cloud architecture, and cybersecurity. Professional insights to engineer success.
+- [Contact Us - Dotenv | Software Development](https://www.dotenv.co.za/contact-us): Stop patching leaks. Let's engineer solutions that last. Contact DotEnv for a free consultation today.
