@@ -1,8 +1,11 @@
-import { generateTitle } from "#/configs/site";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: generateTitle("Services | Quality Assurance"),
+    title: "Services | Quality Assurance",
+    openGraph: {
+        title: "Services | Quality Assurance - Dotenv",
+        description: "Explore the Services | Quality Assurance services delivered by Dotenv Consulting.",
+    }
 };
 
 export default function page() {

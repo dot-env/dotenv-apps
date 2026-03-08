@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
-import { generateTitle } from "#/configs/site";
 import { Heading } from "#/components/page-header";
 
 export const metadata: Metadata = {
-    title: generateTitle("Our Work"),
-    description: "",
+    title: "Our Work",
+    description: "From startups to enterprises, explore our engineered solutions that scale, secure, and simplify.",
+    openGraph: {
+        title: "Our Work - Dotenv",
+        description: "From startups to enterprises, explore our engineered solutions that scale, secure, and simplify.",
+    }
 };
 
 export default function page() {

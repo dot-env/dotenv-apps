@@ -113,90 +113,136 @@ export const socials: {
     url: UrlObject | __next_route_internal_types__.RouteImpl<string>;
     icon: (props: React.SVGProps<SVGSVGElement>) => JSX.Element;
 }[] = [
-    {
-        url: "https://twitter.com/dotenv_co",
-        icon: NewTwitterIcon,
-    },
-    {
-        url: "https://www.linkedin.com/company/dotenv_co",
-        icon: Linkedin02Icon,
-    },
-    {
-        url: "https://www.facebook.com/dotenv_co",
-        icon: Facebook02Icon,
-    },
-    {
-        url: "https://www.instagram.com/dotenv_co",
-        icon: InstagramIcon,
-    },
-];
+        {
+            url: "https://twitter.com/dotenv_co",
+            icon: NewTwitterIcon,
+        },
+        {
+            url: "https://www.linkedin.com/company/dotenv_co",
+            icon: Linkedin02Icon,
+        },
+        {
+            url: "https://www.facebook.com/dotenv_co",
+            icon: Facebook02Icon,
+        },
+        {
+            url: "https://www.instagram.com/dotenv_co",
+            icon: InstagramIcon,
+        },
+    ];
 
 export const links: {
     text: string;
     url: UrlObject | __next_route_internal_types__.RouteImpl<string>;
 }[] = [
-    {
-        text: "Home",
-        url: "/",
-    },
-    {
-        text: "About",
-        url: "/about-us",
-    },
-    {
-        text: "Our Work",
-        url: "/our-work",
-    },
-    {
-        text: "Services",
-        url: "/services",
-    },
-    {
-        text: "Blog",
-        url: "/blog",
-    },
+        {
+            text: "Home",
+            url: "/",
+        },
+        {
+            text: "About",
+            url: "/about-us",
+        },
+        {
+            text: "Our Work",
+            url: "/our-work",
+        },
+        {
+            text: "Services",
+            url: "/services",
+        },
+        {
+            text: "Blog",
+            url: "/blog",
+        },
 
-    {
-        text: "Contact",
-        url: "/contact-us",
-    },
-];
+        {
+            text: "Contact",
+            url: "/contact-us",
+        },
+    ];
 
-export const generateTitle = (title: string) =>
-    `${title} - Dotenv | Software Development`;
+export const siteConfig = {
+    name: "Dotenv",
+    url: process.env.NEXT_PUBLIC_APP_URL || "https://www.dotenv.co.za",
+    ogImage: "https://www.dotenv.co.za/og.jpg",
+    description: "Dotenv is a premier software development agency specializing in scalable web and mobile applications, digital transformation, and enterprise cloud solutions.",
+    links: {
+        twitter: "https://twitter.com/dotenv_co",
+        github: "https://github.com/dotenv",
+    },
+};
 
 export const meta: Metadata = {
-    title: "Home - Dotenv | Software Development",
-    description:
-        "Dotenv is a software development company that specializes in web and mobile applications.",
-    robots:
-        "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
-    authors: { name: "Axole Maranjana", url: "https://www.dotenv.co.za" },
-    classification: "Software Development",
+    metadataBase: new URL(siteConfig.url),
+    title: {
+        default: `${siteConfig.name} | Software Development Agency`,
+        template: `%s - ${siteConfig.name} | Software Development`,
+    },
+    description: siteConfig.description,
     keywords: [
-        "Software Development",
-        "Web Development",
-        "Mobile Development",
-        "Software Engineering",
-        "Software Design",
+        "Software Development South Africa",
+        "Web Development Agency",
+        "Mobile App Development",
+        "Enterprise Cloud Architecture",
+        "React Node.js Developers",
+        "Digital Transformation Consulting",
+        "DevOps Services",
+        "UI/UX Design Agency",
     ],
-    openGraph: {
-        countryName: "South Africa",
-        authors: ["Axole Maranjana"],
-        emails: contacts.email,
-        locale: "en_ZA",
-        siteName: "Dotenv",
-        title: "Home - Dotenv | Software Development",
-        url: "https://www.dotenv.co.za",
-    },
-    category: "Software Development",
+    authors: [
+        {
+            name: "Axole Maranjana",
+            url: "https://www.dotenv.co.za",
+        },
+    ],
+    creator: "Dotenv",
     publisher: "Dotenv",
-    referrer: "no-referrer-when-downgrade",
-    creator: "Axole Maranjana",
-    manifest: "/site.webmanifest",
-    other: {
-        "canonical": "https://.dotenv.co.za",
+    formatDetection: {
+        email: false,
+        address: false,
+        telephone: false,
     },
+    openGraph: {
+        type: "website",
+        locale: "en_ZA",
+        url: siteConfig.url,
+        title: siteConfig.name,
+        description: siteConfig.description,
+        siteName: siteConfig.name,
+        images: [
+            {
+                url: siteConfig.ogImage,
+                width: 1200,
+                height: 630,
+                alt: siteConfig.name,
+            },
+        ],
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: siteConfig.name,
+        description: siteConfig.description,
+        images: [siteConfig.ogImage],
+        creator: "@dotenv_co",
+    },
+    robots: {
+        index: true,
+        follow: true,
+        googleBot: {
+            index: true,
+            follow: true,
+            "max-video-preview": -1,
+            "max-image-preview": "large",
+            "max-snippet": -1,
+        },
+    },
+    icons: {
+        icon: "/favicon.ico",
+        shortcut: "/favicon-16x16.png",
+        apple: "/apple-touch-icon.png",
+    },
+    manifest: "/site.webmanifest",
 };
 
 export const projects = [
@@ -367,68 +413,68 @@ export const services: {
     description: string;
     url: UrlObject | __next_route_internal_types__.RouteImpl<string>;
 }[] = [
-    {
-        name: "Enterprise Web Development",
-        shortDescription: "Transform ideas into high-performance web platforms",
-        description:
-            "Crafting cloud-native web solutions that handle millions of users while maintaining blazing speed. From React-powered PWAs to Node.js microservices, we build digital engines for growth.",
-        url: "/services/web-development#",
-    },
-    {
-        name: "Mobile-First Innovation",
-        shortDescription: "Native apps that users love & investors notice",
-        description:
-            "Build App Store-ready iOS/Android experiences with Flutter or native stacks. Featuring AI-driven analytics, offline capabilities, and seamless API integration - mobile success, engineered.",
-        url: "/services/mobile-development",
-    },
-    {
-        name: "Conversion-Centered UI/UX",
-        shortDescription: "Design that drives engagement & revenue",
-        description:
-            "User journeys scientifically optimized to boost retention by 60%+. Our data-backed designs combine behavioral psychology with stunning aesthetics for interfaces that perform.",
-        url: "/services/ui-ux-design#conversion",
-    },
-    {
-        name: "Technical Leadership as Service",
-        shortDescription: "Your outsourced CTO team",
-        description:
-            "Get Fortune 500-grade architecture guidance without the overhead. We blueprint scalable systems, lead DevOps transformations, and de-risk your tech roadmap.",
-        url: "/services/cto-consulting",
-    },
-    {
-        name: "Future-Proof Architecture",
-        shortDescription: "Systems that scale at startup speed",
-        description:
-            "Design serverless ecosystems, event-driven architectures, and fault-tolerant distributed systems. Sleep well knowing your foundation handles 10x growth overnight.",
-        url: "/services/scalable-software-architecture",
-    },
-    {
-        name: "Bulletproof Quality Assurance",
-        shortDescription: "Ship with zero-critical-issues confidence",
-        description:
-            "Our military-grade testing combines penetration testing, load simulation, and mutation testing to eliminate risks before they reach production.",
-        url: "/services/enterprise-software-testing",
-    },
+        {
+            name: "Enterprise Web Development",
+            shortDescription: "Transform ideas into high-performance web platforms",
+            description:
+                "Crafting cloud-native web solutions that handle millions of users while maintaining blazing speed. From React-powered PWAs to Node.js microservices, we build digital engines for growth.",
+            url: "/services/web-development#",
+        },
+        {
+            name: "Mobile-First Innovation",
+            shortDescription: "Native apps that users love & investors notice",
+            description:
+                "Build App Store-ready iOS/Android experiences with Flutter or native stacks. Featuring AI-driven analytics, offline capabilities, and seamless API integration - mobile success, engineered.",
+            url: "/services/mobile-development",
+        },
+        {
+            name: "Conversion-Centered UI/UX",
+            shortDescription: "Design that drives engagement & revenue",
+            description:
+                "User journeys scientifically optimized to boost retention by 60%+. Our data-backed designs combine behavioral psychology with stunning aesthetics for interfaces that perform.",
+            url: "/services/ui-ux-design#conversion",
+        },
+        {
+            name: "Technical Leadership as Service",
+            shortDescription: "Your outsourced CTO team",
+            description:
+                "Get Fortune 500-grade architecture guidance without the overhead. We blueprint scalable systems, lead DevOps transformations, and de-risk your tech roadmap.",
+            url: "/services/cto-consulting",
+        },
+        {
+            name: "Future-Proof Architecture",
+            shortDescription: "Systems that scale at startup speed",
+            description:
+                "Design serverless ecosystems, event-driven architectures, and fault-tolerant distributed systems. Sleep well knowing your foundation handles 10x growth overnight.",
+            url: "/services/scalable-software-architecture",
+        },
+        {
+            name: "Bulletproof Quality Assurance",
+            shortDescription: "Ship with zero-critical-issues confidence",
+            description:
+                "Our military-grade testing combines penetration testing, load simulation, and mutation testing to eliminate risks before they reach production.",
+            url: "/services/enterprise-software-testing",
+        },
 
-    {
-        name: "DevOps & Cloud Engineering",
-        shortDescription: "Automate your deployment pipeline",
-        description:
-            "From CI/CD pipelines to Kubernetes clusters, we automate your infrastructure to scale with your business. Sleep well knowing your systems are secure, scalable, and cost-efficient.",
-        url: "/services/devops-cloud-engineering",
-    },
-    {
-        name: "Legacy System Modernization",
-        shortDescription: "Revitalize your outdated software stack",
-        description:
-            "Upgrade your legacy systems to cloud-native, microservices-based architectures. We refactor monoliths into scalable, maintainable systems that cut costs by 70%.",
-        url: "/services/legacy-system-modernization",
-    },
-    {
-        name: "Software Consulting",
-        shortDescription: "Expert advice for your digital journey",
-        description:
-            "Get strategic guidance on technology investments, product-market fit, and digital transformation. Our consultants have a track record of turning ideas into profitable software products.",
-        url: "/services/software-consulting",
-    },
-];
+        {
+            name: "DevOps & Cloud Engineering",
+            shortDescription: "Automate your deployment pipeline",
+            description:
+                "From CI/CD pipelines to Kubernetes clusters, we automate your infrastructure to scale with your business. Sleep well knowing your systems are secure, scalable, and cost-efficient.",
+            url: "/services/devops-cloud-engineering",
+        },
+        {
+            name: "Legacy System Modernization",
+            shortDescription: "Revitalize your outdated software stack",
+            description:
+                "Upgrade your legacy systems to cloud-native, microservices-based architectures. We refactor monoliths into scalable, maintainable systems that cut costs by 70%.",
+            url: "/services/legacy-system-modernization",
+        },
+        {
+            name: "Software Consulting",
+            shortDescription: "Expert advice for your digital journey",
+            description:
+                "Get strategic guidance on technology investments, product-market fit, and digital transformation. Our consultants have a track record of turning ideas into profitable software products.",
+            url: "/services/software-consulting",
+        },
+    ];

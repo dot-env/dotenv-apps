@@ -1,8 +1,11 @@
-import { generateTitle } from "#/configs/site";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: generateTitle("Services | Frontend Development"),
+    title: "Services | Frontend Development",
+    openGraph: {
+        title: "Services | Frontend Development - Dotenv",
+        description: "Explore the Services | Frontend Development services delivered by Dotenv Consulting.",
+    }
 };
 
 export default function page() {

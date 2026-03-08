@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
-import { generateTitle } from "#/configs/site";
 import { Heading } from "#/components/page-header";
 
 export const metadata: Metadata = {
-    title: generateTitle("Services"),
-    description:
-        "Whether you’re building from scratch or modernizing legacy systems, our end-to-end services are designed to deliver results—fast, secure, and scalable.",
+    title: "Services",
+    description: "Whether you're building from scratch or modernizing legacy systems, our end-to-end software services deliver results—fast, secure, and scalable.",
+    openGraph: {
+        title: "Our Services - Dotenv",
+        description: "Whether you're building from scratch or modernizing legacy systems, our end-to-end software services deliver results—fast, secure, and scalable.",
+    }
 };
 
 export default function page() {

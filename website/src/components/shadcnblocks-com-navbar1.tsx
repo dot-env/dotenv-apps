@@ -138,29 +138,24 @@ export const Logo = () => (
 const renderMenuItem = (item: MenuItem) => {
   if (item.items) {
     return (
-      <NavigationMenuItem key={item.title} className="text-muted-foreground">
-        <NavigationMenuTrigger className="rounded-full hover:ring-1 hover:ring-zinc-200" aria-label="Open submenu">
-          <Link
-            href={item.url}
-            className="font-medium text-md text-muted-foreground text-sm transition-colors hover:text-accent-foreground"
-          >
-            {item.title}
-          </Link>
+      <NavigationMenuItem key={item.title}>
+        <NavigationMenuTrigger className="bg-transparent data-[state=open]:bg-transparent rounded-full hover:ring-1 hover:ring-zinc-200 text-muted-foreground transition-colors hover:text-accent-foreground">
+          {item.title}
         </NavigationMenuTrigger>
         <NavigationMenuContent>
-          <ul className="p-0 min-w-64">
-            <NavigationMenuLink>
-              {item.items.map((subItem) => (
-                <li key={subItem.title}>
+          <ul className="flex flex-col gap-1 p-2 min-w-48">
+            {item.items.map((subItem) => (
+              <li key={subItem.title}>
+                <NavigationMenuLink asChild>
                   <Link
-                    className="flex hover:bg-muted px-3 py-2 outline-none hover:ring-1 hover:ring-zinc-200 font-medium text-md text-muted-foreground text-sm hover:underline no-underline leading-none transition-colors hover:text-accent-foreground select-none"
+                    className="block hover:bg-muted px-4 py-2 rounded-md outline-none hover:ring-1 hover:ring-zinc-200 font-medium text-muted-foreground text-sm transition-colors hover:text-accent-foreground select-none"
                     href={subItem.url}
                   >
                     {subItem.title}
                   </Link>
-                </li>
-              ))}
-            </NavigationMenuLink>
+                </NavigationMenuLink>
+              </li>
+            ))}
           </ul>
         </NavigationMenuContent>
       </NavigationMenuItem>
@@ -168,13 +163,16 @@ const renderMenuItem = (item: MenuItem) => {
   }
 
   return (
-    <Link
-      key={item.title}
-      className="group inline-flex justify-center items-center bg-background hover:bg-muted px-3 py-2 rounded-full hover:ring-1 hover:ring-zinc-200 w-max min-w-20 font-medium text-muted-foreground text-sm transition-colors hover:text-accent-foreground"
-      href={item.url}
-    >
-      {item.title}
-    </Link>
+    <NavigationMenuItem key={item.title}>
+      <NavigationMenuLink asChild>
+        <Link
+          className="group inline-flex justify-center items-center bg-transparent hover:bg-muted px-4 py-2 rounded-full hover:ring-1 hover:ring-zinc-200 w-max min-w-20 font-medium text-muted-foreground text-sm transition-colors hover:text-accent-foreground"
+          href={item.url}
+        >
+          {item.title}
+        </Link>
+      </NavigationMenuLink>
+    </NavigationMenuItem>
   );
 };
 

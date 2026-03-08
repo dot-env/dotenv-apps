@@ -1,6 +1,10 @@
-import { integer, pgTable, text, timestamp } from "drizzle-orm/pg-core";
 
-export const contacts = pgTable(
+import { APP_NAME } from "#/lib/constants/app";
+import { integer, pgSchema, text, timestamp } from "drizzle-orm/pg-core";
+
+export const customSchema = pgSchema(APP_NAME.replaceAll(" ", "_").toLowerCase());
+
+export const contacts = customSchema.table(
   "website_contacts",
   {
     id: integer().primaryKey().generatedAlwaysAsIdentity(),
@@ -15,8 +19,8 @@ export const contacts = pgTable(
     // Tracks the last time the record was updated
     updatedAt: timestamp("updated_at").notNull().defaultNow(),
   },
-  (table) => ({
+  (table) => ([
     // Additional index on the email field if needed
-    emailIdx: table.email,
-  })
+    { emailIdx: table.email, unique: true },
+  ])
 );

@@ -1,9 +1,13 @@
 import ContactForm from "#/components/contact-form";
-import { generateTitle } from "#/configs/site";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: generateTitle("Contact Us"),
+  title: "Contact Us",
+  description: "Stop patching leaks. Let's engineer solutions that last. Contact DotEnv for a free consultation today.",
+  openGraph: {
+    title: "Contact Us - Dotenv",
+    description: "Stop patching leaks. Let's engineer solutions that last. Contact DotEnv for a free consultation today.",
+  }
 };
 
 export default function page() {

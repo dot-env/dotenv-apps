@@ -1,4 +1,5 @@
 "use client";
+import { useState } from "react";
 import { Button } from "./ui/button";
 import {
     Select,
@@ -19,13 +20,28 @@ import { type ContactForm, handleContactForm } from "#/backend/contact-form";
 const ContactForm = () => {
     const { toast } = useToast();
     const { executeRecaptcha } = useReCaptcha();
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
 
         try {
+            setIsSubmitting(true);
             const form = event.currentTarget;
             const formData = new FormData(form);
+
+            const companySize = formData.get("company_size");
+            const service = formData.get("service");
+            if (!companySize || !service) {
+                toast({
+                    title: "Missing fields",
+                    description: "Please select both a Company Size and a Service.",
+                    variant: "destructive",
+                });
+                setIsSubmitting(false);
+                return;
+            }
+
             const token = await executeRecaptcha("contact_form");
             formData.append("recaptcha_token", token);
             const res = await handleContactForm(
@@ -45,6 +61,8 @@ const ContactForm = () => {
                 description: (error as Error).message,
                 variant: "destructive",
             });
+        } finally {
+            setIsSubmitting(false);
         }
     };
 
@@ -79,16 +97,14 @@ const ContactForm = () => {
                     />
                     <Input
                         type="tel"
-                        placeholder="Phone Number (011-456-7890)"
+                        placeholder="Phone Number (e.g. 011 456 7890)"
                         required
                         autoComplete="mobile tel"
-                        pattern="[0-9]{3}[0-9]{3}[0-9]{4}"
                         name="phone"
                     />
                     <Select
                         name="company_size"
                         aria-label="Company Size"
-                        required
                     >
                         <SelectTrigger className="w-full">
                             <SelectValue placeholder="Company Size" />
@@ -108,7 +124,7 @@ const ContactForm = () => {
                             </SelectItem>
                         </SelectContent>
                     </Select>
-                    <Select name="service" required aria-label="Service">
+                    <Select name="service" aria-label="Service">
                         <SelectTrigger className="w-full">
                             <SelectValue placeholder="Service" />
                         </SelectTrigger>
@@ -130,9 +146,9 @@ const ContactForm = () => {
                         name="message"
                     />
                 </div>
-                <Button type="submit">
-                    Book Your Free Session
-                    <ArrowRight size={24} />
+                <Button type="submit" disabled={isSubmitting}>
+                    {isSubmitting ? "Submitting..." : "Book Your Free Session"}
+                    {!isSubmitting && <ArrowRight size={24} />}
                 </Button>
             </div>
             <div className="mt-2">

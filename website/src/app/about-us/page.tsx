@@ -10,13 +10,16 @@ import Image from "next/image";
 import type { Metadata } from "next";
 
 import { Button } from "#/components/ui/button";
-import { generateTitle } from "#/configs/site";
 import { Heading } from "#/components/page-header";
 
 export const metadata: Metadata = {
-    title: generateTitle("About Us"),
+    title: "About Us",
     description:
         "At DotEnv Consulting, we don’t just write code—we craft solutions that scale, secure, and simplify.",
+    openGraph: {
+        title: "About Us - Dotenv",
+        description: "At DotEnv Consulting, we craft solutions that scale, secure, and simplify.",
+    }
 };
 
 export default function page() {
@@ -141,7 +144,7 @@ export default function page() {
                                 >
                                     <article className="group flex flex-col justify-start items-center gap-4 hover:shadow-sm p-8 border hover:border border-transparent rounded-lg text-primary text-center transition-all">
                                         <h3 aria-label={value.title}>
-                                            <strong className="group-hover:text-primary font-bold text-muted-foreground text-2xl group-hover:scale-105 transition-colors">
+                                            <strong className="font-bold text-muted-foreground group-hover:text-primary text-2xl group-hover:scale-105 transition-colors">
                                                 {value.title}
                                             </strong>
                                         </h3>

@@ -1,8 +1,11 @@
-import { generateTitle } from "#/configs/site";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: generateTitle("Privacy Policy"),
+    title: "Privacy Policy",
+    openGraph: {
+        title: "Privacy Policy - Dotenv",
+        description: "Explore the Privacy Policy services delivered by Dotenv Consulting.",
+    }
 };
 
 export default function page() {

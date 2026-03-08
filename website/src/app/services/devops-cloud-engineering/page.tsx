@@ -1,8 +1,11 @@
-import { generateTitle } from "#/configs/site";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: generateTitle("Services | DevOps & Cloud Engineering"),
+    title: "Services | DevOps & Cloud Engineering",
+    openGraph: {
+        title: "Services | DevOps & Cloud Engineering - Dotenv",
+        description: "Explore the Services | DevOps & Cloud Engineering services delivered by Dotenv Consulting.",
+    }
 };
 
 export default function page() {
