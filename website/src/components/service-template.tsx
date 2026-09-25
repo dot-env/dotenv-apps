@@ -5,22 +5,9 @@ import Link from "next/link";
 import { JsonLd } from "#/components/json-ld";
 import type { Service, WithContext } from "schema-dts";
 
-interface Feature {
-    title: string;
-    description: string;
-}
+import type { ServiceRecord } from "#/data/services";
 
-interface ServiceData {
-    id: string;
-    title: string;
-    shortDescription: string;
-    description: string;
-    features: Feature[];
-    benefits: string[];
-    technologies: string[];
-}
-
-export const ServiceTemplate = ({ data }: { data: ServiceData }) => {
+export const ServiceTemplate = ({ data }: { data: ServiceRecord }) => {
     const serviceJsonLd: WithContext<Service> = {
         "@context": "https://schema.org",
         "@type": "Service",
@@ -35,7 +22,7 @@ export const ServiceTemplate = ({ data }: { data: ServiceData }) => {
         "hasOfferCatalog": {
             "@type": "OfferCatalog",
             "name": data.title,
-            "itemListElement": data.features.map((feature, index) => ({
+            "itemListElement": data.features.map((feature) => ({
                 "@type": "Offer",
                 "itemOffered": {
                     "@type": "Service",
@@ -129,8 +116,8 @@ export const ServiceTemplate = ({ data }: { data: ServiceData }) => {
                     </div>
                     <div className="mt-12 pt-12 border-white/10 border-t">
                         <p className="mb-6 text-primary-foreground/80 italic">
-                            "DotEnv transformed our legacy infrastructure into a high-performance engine.
-                            Their precision and technical depth are unmatched."
+                            &ldquo;DotEnv transformed our legacy infrastructure into a high-performance engine.
+                            Their precision and technical depth are unmatched.&rdquo;
                         </p>
                         <div className="flex items-center gap-4">
                             <div className="flex justify-center items-center bg-white/20 rounded-full w-12 h-12 font-bold">
@@ -151,7 +138,7 @@ export const ServiceTemplate = ({ data }: { data: ServiceData }) => {
                     <div className="max-w-xl">
                         <h2 className="mb-4 font-bold text-3xl md:text-4xl">Ready to engineer your success?</h2>
                         <p className="text-muted-foreground text-lg">
-                            Let's discuss how our {data.title.toLowerCase()} expertise can solve your unique business challenges.
+                            Let&apos;s discuss how our {data.title.toLowerCase()} expertise can solve your unique business challenges.
                         </p>
                     </div>
                     <Link href="/contact-us">

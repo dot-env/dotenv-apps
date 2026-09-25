@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import { Heading } from "#/components/page-header";
 
 import Link from "next/link";
-import { ArrowRight, Bot, Cloud, Coffee, Cpu, Layers, Layout, Lock, MessageSquare, Monitor, Rocket, Search, Smartphone, Zap } from "lucide-react";
-import servicesData from "#/data/services.json";
+import { ArrowRight, Bot, Cloud, Coffee, Cpu, Layers, Layout, Lock, MessageSquare, Monitor, Rocket, Search, Smartphone, Zap, type LucideIcon } from "lucide-react";
+import type { Route } from "next";
+import { services } from "#/data/services";
 
 export const metadata: Metadata = {
     title: "Services",
@@ -14,7 +15,7 @@ export const metadata: Metadata = {
     }
 };
 
-const iconMap: Record<string, any> = {
+const iconMap: Record<string, LucideIcon> = {
     "web-development": Monitor,
     "mobile-development": Smartphone,
     "ui-ux-design": Layout,
@@ -33,7 +34,7 @@ const iconMap: Record<string, any> = {
 };
 
 export default function Page() {
-    const services = Object.values(servicesData);
+    const allServices = Object.values(services);
 
     return (
         <>
@@ -46,12 +47,12 @@ export default function Page() {
             />
             <section id="our-services" className="mx-auto px-4 md:px-6 py-20 container">
                 <div className="gap-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-                    {services.map((service: any) => {
+                    {allServices.map((service) => {
                         const Icon = iconMap[service.id] || Rocket;
                         return (
                             <Link
                                 key={service.id}
-                                href={`/services/${service.id}` as any}
+                                href={`/services/${service.id}` as Route}
                                 className="group flex flex-col bg-background p-8 border hover:border-primary/50 rounded-3xl h-full transition-all"
                             >
                                 <div className="flex justify-center items-center bg-muted group-hover:bg-primary mb-6 rounded-2xl w-12 h-12 group-hover:text-primary-foreground transition-colors">

@@ -43,7 +43,7 @@ export async function POST(request: Request) {
                     signature: svixSignature,
                 },
                 webhookSecret: webhookSecret,
-            }) as any; // Type assertion to access event data cleanly
+            });
         } catch (err) {
             console.error('Webhook verification failed:', err);
             return NextResponse.json(
@@ -54,8 +54,16 @@ export async function POST(request: Request) {
 
         // Handle email.received event
         if (event.type === 'email.received') {
-            console.log('New email received from:', event.data?.from);
-            console.log('Subject:', event.data?.subject);
+            const received = event.data;
+            console.log('New email received from:', received?.from);
+            console.log('Subject:', received?.subject);
+
+            if (!received?.email_id) {
+                return NextResponse.json(
+                    { error: 'Missing email id on received event' },
+                    { status: 400 },
+                );
+            }
 
             // Format recipient list from process.env
             const contactEmails = (
@@ -65,7 +73,7 @@ export async function POST(request: Request) {
 
             try {
                 const { error: forwardError } = await resend.emails.receiving.forward({
-                    emailId: event.data.email_id,
+                    emailId: received.email_id,
                     to: contactEmails,
                     from: fromEmail,
                 });

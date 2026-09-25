@@ -1,4 +1,5 @@
 import type { MetadataRoute } from 'next';
+import { cacheLife } from 'next/cache';
 import { navData } from '#/configs/nav-bar';
 
 const BASE_URL = process.env.NEXT_PUBLIC_APP_URL || 'https://www.dotenv.co.za';
@@ -14,6 +15,8 @@ export default async function sitemap(
     //     id: Promise<string>;
     // }
 ): Promise<MetadataRoute.Sitemap> {
+    "use cache";
+    cacheLife("days");
     // The id is provided as a Promise resolving to string (Next.js 16+)
     // const idValue = await props.id;
     // const id = parseInt(idValue, 10);

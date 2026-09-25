@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { ServiceTemplate } from "#/components/service-template";
-import servicesData from "#/data/services.json";
+import { services } from "#/data/services";
 
 const serviceId = "devops-cloud-engineering";
-const data = (servicesData as any)[serviceId];
+const data = services[serviceId];
 
 export const metadata: Metadata = {
     title: `Services | ${data?.title || "Devops Cloud Engineering"}`,

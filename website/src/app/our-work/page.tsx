@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Route } from "next";
 import { Heading } from "#/components/page-header";
 import { JsonLd } from "#/components/json-ld";
 import type { CollectionPage, WithContext } from "schema-dts";
@@ -94,7 +94,7 @@ export default function page() {
                                     </div>
                                     {project.url && project.url !== '#' && (
                                         <Link
-                                            href={project.url as any}
+                                            href={project.url as Route}
                                             target="_blank"
                                             className="bg-muted p-2 rounded-full hover:text-primary transition-colors"
                                         >
@@ -108,7 +108,7 @@ export default function page() {
                                 </p>
 
                                 <div className="flex flex-wrap gap-2 mt-auto">
-                                    {(project as any).tags?.map((tag: string, i: number) => (
+                                    {project.tags?.map((tag: string, i: number) => (
                                         <span
                                             key={i}
                                             className="bg-muted/50 px-3 py-1 rounded-lg font-medium text-muted-foreground text-sm"
@@ -128,7 +128,7 @@ export default function page() {
                         Your vision, <span className="text-primary">our engineering.</span>
                     </h2>
                     <p className="mx-auto mb-10 max-w-2xl text-muted-foreground text-xl">
-                        Ready to be our next success story? Let's discuss how we can build something
+                        Ready to be our next success story? Let&apos;s discuss how we can build something
                         extraordinary together.
                     </p>
                     <Link href="/contact-us">

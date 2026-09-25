@@ -1,8 +1,16 @@
+import { cacheLife } from "next/cache";
 import Link from "next/link";
 import { Logo } from "./shadcnblocks-com-navbar1";
 import { contacts, links, socials } from "#/configs/site";
 
-const Footer = () => {
+async function copyrightYear() {
+    "use cache";
+    cacheLife("max");
+    return new Date().getFullYear();
+}
+
+const Footer = async () => {
+    const year = await copyrightYear();
     return (
         <footer className="flex flex-col justify-center items-center gap-6 mt-8 px-4 md:px-0 pb-4 w-full">
             <div className="flex flex-col items-center gap-4 w-full">
@@ -106,7 +114,7 @@ const Footer = () => {
                 </div>
                 <div className="flex flex-col items-center gap-2">
                     <p className="text-muted-foreground text-xs">
-                        © {new Date().getFullYear()}{" "}
+                        © {year}{" "}
                         dotenv consulting. All rights reserved. Developed by
                         {"  "}
                         <Link

@@ -6,7 +6,7 @@ import React from 'react';
  * 
  * @see https://nextjs.org/docs/app/guides/json-ld
  */
-export const JsonLd = ({ data }: { data: any }) => {
+export const JsonLd = ({ data }: { data: object }) => {
     return (
         <script
             type="application/ld+json"

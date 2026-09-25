@@ -33,15 +33,15 @@ export const navData: {
       items: [
         {
           title: "Enterprise Java",
-          url: "/services/java-development" as any,
+          url: "/services/java-development",
         },
         {
           title: "AI & GenAI Solutions",
-          url: "/services/ai-development" as any,
+          url: "/services/ai-development",
         },
         {
           title: "Cloud-Native Engineering",
-          url: "/services/cloud-native-development" as any,
+          url: "/services/cloud-native-development",
         },
         {
           title: "Custom Web Applications",

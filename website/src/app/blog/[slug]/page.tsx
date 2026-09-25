@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import { Suspense } from "react";
 import { ArrowLeft, Calendar, UserRound } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
@@ -21,11 +22,31 @@ interface BlogPostPageProps {
     }>;
 }
 
+async function getPublishedSlugs() {
+    "use cache";
+    cacheTag("blog");
+    const posts = await db
+        .select({ slug: blogs.slug })
+        .from(blogs)
+        .where(eq(blogs.published, "published"));
+    return posts;
+}
+
+async function getPost(slug: string) {
+    "use cache";
+    cacheTag("blog-post-" + slug);
+    const [post] = await db.select().from(blogs).where(eq(blogs.slug, slug)).limit(1);
+    return post;
+}
+
+export async function generateStaticParams() {
+    const posts = await getPublishedSlugs();
+    return posts.map((post) => ({ slug: post.slug }));
+}
+
 export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
     const { slug } = await params;
-
-    // Using string interpolation or eq isn't directly compatible in findFirst unless mapped.
-    const [post] = await db.select().from(blogs).where(eq(blogs.slug, slug)).limit(1);
+    const post = await getPost(slug);
 
     if (!post) {
         return {
@@ -44,11 +65,9 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
     };
 }
 
-
-export default async function BlogPostPage({ params }: BlogPostPageProps) {
-    "use cache";
+async function BlogPost({ params }: BlogPostPageProps) {
     const { slug } = await params;
-    const [post] = await db.select().from(blogs).where(eq(blogs.slug, slug)).limit(1);
+    const post = await getPost(slug);
 
     if (!post || post.published !== "published") {
         notFound();
@@ -80,8 +99,6 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             "@id": `${siteConfig.url}/blog/${post.slug}`
         }
     };
-
-    cacheTag("blog-post" + post.id);
 
     return (
         <article className="pb-20 min-h-screen">
@@ -142,5 +159,30 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 </div>
             </div>
         </article>
+    );
+}
+
+function BlogPostFallback() {
+    return (
+        <article className="pb-20 min-h-screen">
+            <div className="relative bg-background mb-12 pt-32 lg:pt-48 pb-20 lg:pb-32 border-b overflow-hidden">
+                <div className="z-10 relative mx-auto px-4 md:px-6 max-w-4xl container">
+                    <div className="mb-8 h-5 w-36 rounded bg-muted" />
+                    <div className="mb-6 h-12 w-3/4 rounded bg-muted" />
+                    <div className="flex items-center gap-2 text-muted-foreground">
+                        <UserRound className="w-5 h-5" />
+                        <div className="h-5 w-28 rounded bg-muted" />
+                    </div>
+                </div>
+            </div>
+        </article>
+    );
+}
+
+export default function BlogPostPage({ params }: BlogPostPageProps) {
+    return (
+        <Suspense fallback={<BlogPostFallback />}>
+            <BlogPost params={params} />
+        </Suspense>
     );
 }

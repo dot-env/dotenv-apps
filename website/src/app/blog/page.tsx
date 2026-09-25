@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Route } from "next";
 import Link from "next/link";
 import { ArrowRight, Calendar } from "lucide-react";
 
@@ -73,7 +73,7 @@ export default async function Page() {
                         {allBlogs.map((post) => (
                             <Link
                                 key={post.id}
-                                href={`/blog/${post.slug}` as any}
+                                href={`/blog/${post.slug}` as Route}
                                 className="group flex flex-col justify-between bg-background hover:shadow-md border hover:border-foreground/20 rounded-2xl overflow-hidden transition-all"
                             >
                                 {post.imageUrl ? (
