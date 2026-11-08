@@ -7,7 +7,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
-import type { Metadata } from "next";
+import { pageMetadata } from "#/lib/page-metadata";
 
 import { Button } from "#/components/ui/button";
 import { Heading } from "#/components/page-header";
@@ -15,15 +15,11 @@ import { JsonLd } from "#/components/json-ld";
 import type { AboutPage, WithContext } from "schema-dts";
 import { siteConfig } from "#/configs/site";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
+    description: "Dotenv is a software development agency in Johannesburg. We build and modernize web, mobile, and cloud systems for startups and enterprises.",
+    path: "/about-us",
     title: "About Us",
-    description:
-        "At DotEnv Consulting, we don’t just write code—we craft solutions that scale, secure, and simplify.",
-    openGraph: {
-        title: "About Us - Dotenv",
-        description: "At DotEnv Consulting, we craft solutions that scale, secure, and simplify.",
-    }
-};
+});
 
 export default function page() {
     const aboutJsonLd: WithContext<AboutPage> = {
@@ -45,7 +41,7 @@ export default function page() {
             <JsonLd data={aboutJsonLd} />
             <Heading
                 link="#our-story"
-                pageDescription="At DotEnv Consulting, we don’t just write code—we craft solutions that scale, secure, and simplify."
+                pageDescription="At DotEnv Consulting, we don’t just write code - we craft solutions that scale, secure, and simplify."
                 pageTitleBold="Engineering Success"
                 pageTitleLight=", One Line of Code at a Time"
                 name="About Us"
@@ -281,7 +277,7 @@ const whyUs = [
     {
         title: "Senior-Level Expertise",
         description:
-            "Our team combined 10+ years of experience in software development, cloud architecture, and cybersecurity. No junior developers—just seasoned professionals.",
+            "Our team combined 10+ years of experience in software development, cloud architecture, and cybersecurity. No junior developers - just seasoned professionals.",
     },
     {
         title: "Outcome-Focused Approach",

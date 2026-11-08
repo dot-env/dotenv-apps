@@ -1,20 +1,14 @@
-import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import { ServiceTemplate } from "#/components/service-template";
 import { services } from "#/data/services";
+import { serviceMetadata } from "#/lib/page-metadata";
 
 const serviceId = "cto-consulting";
 const data = services[serviceId];
 
-export const metadata: Metadata = {
-    title: `Services | ${data?.title || "Cto Consulting"}`,
-    description: data?.shortDescription || "Professional ${serviceId} services engineered for success.",
-    openGraph: {
-        title: `Services | ${data?.title || "Cto Consulting"} - Dotenv`,
-        description: data?.description || "Explore our premium ${serviceId} consulting and development services.",
-    }
-};
+export const metadata = serviceMetadata(serviceId);
 
 export default function Page() {
-    if (!data) return null;
+    if (!data) notFound();
     return <ServiceTemplate data={data} />;
 }

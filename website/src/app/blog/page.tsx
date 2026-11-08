@@ -1,4 +1,5 @@
-import type { Metadata, Route } from "next";
+import type { Route } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Calendar } from "lucide-react";
 
@@ -9,16 +10,14 @@ import { desc, eq } from "drizzle-orm";
 import { JsonLd } from "#/components/json-ld";
 import type { Blog, WithContext } from "schema-dts";
 import { siteConfig } from "#/configs/site";
+import { pageMetadata } from "#/lib/page-metadata";
 import { cacheTag } from "next/cache";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
+    description: "Notes on software development, cloud architecture, and security from the Dotenv team in Johannesburg.",
+    path: "/blog",
     title: "Blog",
-    description: "Dive into the latest in software development, cloud architecture, and cybersecurity. Professional insights to engineer success.",
-    openGraph: {
-        title: "Blog - Dotenv",
-        description: "Dive into the latest in software development, cloud architecture, and cybersecurity. Professional insights to engineer success.",
-    }
-};
+});
 
 
 export default async function Page() {
@@ -40,7 +39,7 @@ export default async function Page() {
             "name": "Dotenv",
             "logo": {
                 "@type": "ImageObject",
-                "url": `${siteConfig.url}/logo.png`
+                "url": `${siteConfig.url}${siteConfig.logo}`
             }
         },
         "blogPost": allBlogs.map((post) => ({
@@ -77,11 +76,13 @@ export default async function Page() {
                                 className="group flex flex-col justify-between bg-background hover:shadow-md border hover:border-foreground/20 rounded-2xl overflow-hidden transition-all"
                             >
                                 {post.imageUrl ? (
-                                    <div className="bg-muted w-full aspect-video overflow-hidden">
-                                        <img
-                                            src={post.imageUrl}
+                                    <div className="relative bg-muted w-full aspect-video overflow-hidden">
+                                        <Image
                                             alt={post.title}
-                                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                            className="object-cover group-hover:scale-105 transition-transform duration-500"
+                                            fill
+                                            sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                                            src={post.imageUrl}
                                         />
                                     </div>
                                 ) : (

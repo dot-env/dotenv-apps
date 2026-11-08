@@ -52,7 +52,7 @@ const Footer = async () => {
                         </h6>
                         <ul className="flex flex-col gap-2 text-muted-foreground text-sm">
                             <Link
-                                href={`mailto:${contacts.phone}`}
+                                href={`tel:${contacts.phone.replaceAll(" ", "")}`}
                                 className="hover:text-accent-foreground"
                             >
                                 {contacts.phone}

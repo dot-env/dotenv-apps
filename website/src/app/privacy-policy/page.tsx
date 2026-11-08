@@ -1,12 +1,10 @@
-import type { Metadata } from "next";
+import { pageMetadata } from "#/lib/page-metadata";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
+    description: "How Dotenv collects, uses, and shares personal information submitted through this website.",
+    path: "/privacy-policy",
     title: "Privacy Policy",
-    openGraph: {
-        title: "Privacy Policy - Dotenv",
-        description: "Explore the Privacy Policy services delivered by Dotenv Consulting.",
-    }
-};
+});
 
 export default function page() {
     return (

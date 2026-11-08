@@ -1,20 +1,19 @@
-import type { Metadata, Route } from "next";
+import type { Route } from "next";
+import Image from "next/image";
 import { Heading } from "#/components/page-header";
 import { JsonLd } from "#/components/json-ld";
 import type { CollectionPage, WithContext } from "schema-dts";
-import { siteConfig, projects } from "#/configs/site";
+import { projectSlug, projects, siteConfig } from "#/configs/site";
+import { pageMetadata } from "#/lib/page-metadata";
 import { ExternalLink, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { Button } from "#/components/ui/button";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
+    description: "Production software for finance, hospitality, and higher education, including PipAlert, Local Lifestyle, and University of Johannesburg platforms.",
+    path: "/our-work",
     title: "Our Work",
-    description: "From startups to enterprises, explore our engineered solutions that scale, secure, and simplify.",
-    openGraph: {
-        title: "Our Work - Dotenv",
-        description: "From startups to enterprises, explore our engineered solutions that scale, secure, and simplify.",
-    }
-};
+});
 
 export default function page() {
     const portfolioJsonLd: WithContext<CollectionPage> = {
@@ -52,18 +51,21 @@ export default function page() {
 
             <section id="projects" className="mx-auto px-4 md:px-6 container">
                 <div className="gap-8 grid grid-cols-1 md:grid-cols-2">
-                    {projects.map((project, index) => (
+                    {projects.map((project) => (
                         <div
-                            key={index}
-                            className="group flex flex-col bg-background border hover:border-primary/20 rounded-3xl h-full transition-all duration-300"
+                            className="group flex flex-col bg-background border hover:border-primary/20 rounded-3xl h-full scroll-mt-28 transition-all duration-300"
+                            id={projectSlug(project.name)}
+                            key={project.name}
                         >
                             {/* Project Header / Media */}
                             <div className="relative bg-muted/30 border-b aspect-video overflow-hidden">
                                 {project.image && !project.image.startsWith('/') ? (
-                                    <img
-                                        src={project.image}
+                                    <Image
                                         alt={project.name}
-                                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                                        fill
+                                        sizes="(min-width: 768px) 50vw, 100vw"
+                                        src={project.image}
                                     />
                                 ) : (
                                     <div className="flex justify-center items-center w-full h-full text-muted-foreground">

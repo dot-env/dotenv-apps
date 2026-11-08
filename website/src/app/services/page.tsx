@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { pageMetadata } from "#/lib/page-metadata";
 import { Heading } from "#/components/page-header";
 
 import Link from "next/link";
@@ -6,14 +6,11 @@ import { ArrowRight, Bot, Cloud, Coffee, Cpu, Layers, Layout, Lock, MessageSquar
 import type { Route } from "next";
 import { services } from "#/data/services";
 
-export const metadata: Metadata = {
-    title: "Services",
-    description: "Whether you're building from scratch or modernizing legacy systems, our end-to-end software services deliver results—fast, secure, and scalable.",
-    openGraph: {
-        title: "Our Services - Dotenv",
-        description: "Whether you're building from scratch or modernizing legacy systems, our end-to-end software services deliver results—fast, secure, and scalable.",
-    }
-};
+export const metadata = pageMetadata({
+    description: "Software development services from Dotenv: web, mobile, AI, cloud, Java, DevOps, testing, and legacy modernization.",
+    path: "/services",
+    title: "Software Development Services",
+});
 
 const iconMap: Record<string, LucideIcon> = {
     "web-development": Monitor,
@@ -41,7 +38,7 @@ export default function Page() {
             <Heading
                 link="#our-services"
                 name="Our Services"
-                pageDescription="Whether you’re building from scratch or modernizing legacy systems, our end-to-end services are designed to deliver results—fast, secure, and scalable."
+                pageDescription="Whether you’re building from scratch or modernizing legacy systems, our end-to-end services are designed to deliver results - fast, secure, and scalable."
                 pageTitleBold="Your Vision"
                 pageTitleLight=", Our Precision Toolkit"
             />

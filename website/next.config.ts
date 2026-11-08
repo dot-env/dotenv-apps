@@ -1,27 +1,29 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  turbopack: {
-    root: import.meta.dirname,
+  cacheComponents: true,
+  compiler: {
+    removeConsole: true,
+  },
+  experimental: {
+    cssChunking: true,
+    typedEnv: true,
   },
   images: {
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+    dangerouslyAllowSVG: true,
     remotePatterns: [
       {
-        hostname: "www.locallifestyle.co.za",
+        hostname: "*",
         protocol: "https",
       },
     ],
   },
-  typedRoutes: true,
-  cacheComponents: true,
-  experimental: {
-
-    typedEnv: true,
-    cssChunking: true,
+  partialPrefetching: false,
+  turbopack: {
+    root: import.meta.dirname,
   },
-  compiler: {
-    removeConsole: true,
-  }
+  typedRoutes: true,
 };
 
 export default nextConfig;

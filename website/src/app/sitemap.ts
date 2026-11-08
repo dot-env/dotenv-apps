@@ -1,56 +1,63 @@
-import type { MetadataRoute } from 'next';
-import { cacheLife } from 'next/cache';
-import { navData } from '#/configs/nav-bar';
+import type { MetadataRoute } from "next";
+import { cacheLife, cacheTag } from "next/cache";
+import { desc, eq } from "drizzle-orm";
+import { db } from "#/backend/db";
+import { blogs } from "#/backend/db/schema";
+import { siteConfig } from "#/configs/site";
+import { services } from "#/data/services";
 
-const BASE_URL = process.env.NEXT_PUBLIC_APP_URL || 'https://www.dotenv.co.za';
+const STATIC_ROUTES = [
+  "/",
+  "/about-us",
+  "/blog",
+  "/contact-us",
+  "/our-work",
+  "/privacy-policy",
+  "/services",
+] as const;
 
-// export async function generateSitemaps() {
-//     // We only have one sitemap right now since we have a small site,
-//     // but this structure allows it to grow in the future.
-//     return [{ id: 0 }];
-// }
+function absoluteUrl(route: string) {
+  if (route === "/") {
+    return siteConfig.url;
+  }
 
-export default async function sitemap(
-    //     props: {
-    //     id: Promise<string>;
-    // }
-): Promise<MetadataRoute.Sitemap> {
-    "use cache";
-    cacheLife("days");
-    // The id is provided as a Promise resolving to string (Next.js 16+)
-    // const idValue = await props.id;
-    // const id = parseInt(idValue, 10);
+  return `${siteConfig.url}${route}`;
+}
 
-    // // You can slice your routes based on the id just like the docs if you grow over 50k URLs
-    // // For now, id 0 returns all static routes.
-    // if (id !== 0) return [];
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  "use cache";
+  cacheLife("days");
+  cacheTag("blog");
 
-    // Start with foundational hidden/utility routes
-    const routes = ['/privacy-policy'];
+  const posts = await db
+    .select({
+      slug: blogs.slug,
+      updatedAt: blogs.updatedAt,
+    })
+    .from(blogs)
+    .where(eq(blogs.published, "published"))
+    .orderBy(desc(blogs.updatedAt));
 
-    // Add all primary navigation routes dynamically
-    navData.menu.forEach((menuItem) => {
-        if (menuItem.url) {
-            routes.push(menuItem.url as string);
-        }
+  const staticEntries: MetadataRoute.Sitemap = STATIC_ROUTES.map((route) => ({
+    changeFrequency: route === "/" ? "weekly" : "monthly",
+    priority: route === "/" ? 1 : 0.8,
+    url: absoluteUrl(route),
+  }));
 
-        if (menuItem.items && menuItem.items.length > 0) {
-            menuItem.items.forEach((subItem) => {
-                if (subItem.url) {
-                    routes.push(subItem.url as string);
-                }
-            });
-        }
-    });
+  const serviceEntries: MetadataRoute.Sitemap = Object.values(services).map(
+    (service) => ({
+      changeFrequency: "monthly",
+      priority: 0.7,
+      url: absoluteUrl(`/services/${service.id}`),
+    }),
+  );
 
-    // Ensure unique paths
-    const uniqueRoutes = Array.from(new Set(routes));
+  const postEntries: MetadataRoute.Sitemap = posts.map((post) => ({
+    changeFrequency: "monthly",
+    lastModified: post.updatedAt,
+    priority: 0.6,
+    url: absoluteUrl(`/blog/${post.slug}`),
+  }));
 
-    return uniqueRoutes.map((route) => ({
-        url: `${BASE_URL}${route.replace(/\/$/, '')}`,
-        lastModified: new Date(),
-        // Standard change frequencies and priorities
-        changeFrequency: route === "/" ? "weekly" : "monthly",
-        priority: route === "/" ? 1 : 0.8,
-    }));
+  return [...staticEntries, ...serviceEntries, ...postEntries];
 }

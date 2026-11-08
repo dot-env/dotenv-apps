@@ -2,35 +2,42 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 
+import { BuyerFaqs } from "#/components/buyer-faqs";
+import { JsonLd } from "#/components/json-ld";
 import { Button } from "#/components/ui/button";
 import ContactForm from "#/components/contact-form";
-import { projects, services, skills } from "#/configs/site";
+import { buyerFaqJsonLd } from "#/content/buyer-faqs";
+import { projectSlug, projects, services, skills } from "#/configs/site";
+import { pageMetadata } from "#/lib/page-metadata";
+
+export const metadata = pageMetadata({
+  absoluteTitle: true,
+  description:
+    "Dotenv is a software development agency in Johannesburg, South Africa. We build web platforms, mobile apps, and cloud systems. Start with a free technical audit.",
+  path: "/",
+  title: "Dotenv | Software Development Agency in Johannesburg",
+});
 
 export default function Home() {
   return (
     <>
+      <JsonLd data={buyerFaqJsonLd} />
       <main
         aria-label="Home"
-        className="flex justify-center items-center md:items-start gap-8 my-16 px-8 md:px-0 align-middle"
+        className="my-16 flex w-full min-w-0 items-center justify-center gap-8 px-8 md:items-start md:px-0"
         id="home"
       >
-        <div className="justify-center items-center gap-8 grid grid-cols-1 md:grid-cols-5 md:mt-10">
-          <div className="flex flex-col items-center md:items-start gap-4 md:gap-8 col-span-3">
+        <div className="grid min-w-0 w-full grid-cols-1 items-center justify-center gap-8 md:mt-10 md:grid-cols-5">
+          <div className="col-span-3 flex min-w-0 flex-col items-center gap-4 md:items-start md:gap-8">
             <h1 className="font-bold text-muted-foreground text-4xl md:text-5xl md:text-left text-center">
-              <span className="text-primary">
-                Build. Scale. Secure.
-              </span>Your Software, Optimized.
+              <span className="text-primary">Software development</span> for
+              teams that need to build, scale, and secure.
             </h1>
             <p className="text-base md:text-left text-center">
-              DotEnv Consulting configures high-performance software solutions
-              for startups and enterprises. From cloud architecture to DevOps
-              pipelines, we turn environment variables into{"  "}
-              <code
-                className="bg-primary-foreground rounded-md text-primary"
-                style={{ fontFamily: "var(--font-geist-mono)" }}
-              >
-                business variables
-              </code>.
+              Dotenv is a software development agency in Johannesburg, South
+              Africa. We design and build web platforms, mobile apps, and cloud
+              systems for startups and enterprises in finance, hospitality, and
+              higher education. Engagements start with a free technical audit.
             </p>
 
             <div className="flex gap-4 md:-mt-6">
@@ -53,26 +60,26 @@ export default function Home() {
           </div>
           <Image
             src="/images/hero.svg"
-            alt="Hero"
+            alt="Illustration of a product team planning a software release"
             width={500}
             height={500}
-            className="col-span-2"
+            className="col-span-2 h-auto min-w-0 w-full max-w-full"
             priority
           />
         </div>
       </main>
       <hr />
       <section id="about" aria-label="About Us">
-        <div className="flex justify-center items-center gap-8 my-16 px-8 md:px-0 align-middle">
-          <div className="justify-center items-center gap-8 grid grid-cols-1 md:grid-cols-5">
+        <div className="my-16 flex w-full min-w-0 items-center justify-center gap-8 px-8 md:px-0">
+          <div className="grid w-full min-w-0 grid-cols-1 items-center justify-center gap-8 md:grid-cols-5">
             <Image
               src="/images/code-typing-animate.svg"
-              alt="Code"
+              alt="Illustration of an engineer writing application code"
               width={500}
               height={500}
-              className="col-span-2"
+              className="col-span-2 h-auto min-w-0 w-full max-w-full"
             />
-            <div className="flex flex-col items-center md:items-start gap-4 md:gap-8 col-span-3">
+            <div className="flex min-w-0 flex-col items-center md:items-start gap-4 md:gap-8 col-span-3">
               <h2 className="font-bold text-muted-foreground text-4xl md:text-5xl md:text-left text-center">
                 <span className="text-primary">Code</span>{" "}
                 Should Work for You, Not Against You
@@ -96,17 +103,17 @@ export default function Home() {
                   {" "}
                   <strong className="font-medium text-primary">AZURE</strong>,
                   {" "}
-                  <strong className="font-medium text-primary">GPC</strong>,
+                  <strong className="font-medium text-primary">GCP</strong>,
                   {" "}
                   <strong className="font-medium text-primary">
                     Kubernetes
                   </strong>,{" "}
                   <strong className="font-medium text-primary">Docker</strong>
                   {" "}
-                  —we speak your stack’s language.
+                  - we speak your stack’s language.
                 </li>
                 <li className="text-sm md:text-left text-center">
-                  Weekly sprints, clear workflows, and no jargon—{" "}
+                  Weekly sprints, clear workflows, and no jargon -{" "}
                   <strong className="font-medium text-primary">
                     just results
                   </strong>.
@@ -173,7 +180,7 @@ export default function Home() {
               </div>
             </div>
             <div className="gap-4 grid grid-cols-1 md:grid-cols-3 md:col-span-6">
-              {services.slice(4, 7).map((service) => (
+              {services.slice(4).map((service) => (
                 <Service key={service.name} service={service} />
               ))}
             </div>
@@ -198,9 +205,7 @@ export default function Home() {
             <div className="gap-8 grid grid-cols-2 md:grid-cols-3">
               {projects.slice(0, 6).map((project) => (
                 <Link
-                  href={`/our-work#${
-                    project.name.toLocaleLowerCase().replaceAll(" ", "-")
-                  }`}
+                  href={`/our-work#${projectSlug(project.name)}`}
                   key={project.name}
                   className="group flex flex-col gap-4 bg-primary-foreground hover:shadow-md peer-hover:blur-sm p-4 rounded-md text-primary hover:scale-105 transition-all"
                 >
@@ -236,17 +241,19 @@ export default function Home() {
         </div>
       </section>
       <hr />
+      <BuyerFaqs />
+      <hr />
       <section id="process" aria-label="Our Process">
-        <div className="flex flex-col justify-center items-center gap-8 my-16 px-8 md:px-0 align-middle">
-          <div className="justify-center items-center gap-8 grid grid-cols-1 md:grid-cols-5">
+        <div className="my-16 flex w-full min-w-0 flex-col items-center justify-center gap-8 px-8 md:px-0">
+          <div className="grid w-full min-w-0 grid-cols-1 items-center justify-center gap-8 md:grid-cols-5">
             <Image
               src="/images/project-stages-animate.svg"
-              alt="Process"
+              alt="Illustration of a software project moving from consult to launch"
               width={500}
               height={500}
-              className="col-span-2"
+              className="col-span-2 h-auto min-w-0 w-full max-w-full"
             />
-            <div className="flex flex-col items-center md:items-start gap-4 md:gap-8 col-span-3">
+            <div className="flex min-w-0 flex-col items-center md:items-start gap-4 md:gap-8 col-span-3">
               <h2 className="font-bold text-muted-foreground text-4xl md:text-5xl md:text-left text-center">
                 How <span className="text-primary">It Works</span>
               </h2>
@@ -300,7 +307,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="gap-8 grid grid-cols-1 md:grid-cols-2 px-8 md:px-4">
+          <div className="grid w-full min-w-0 grid-cols-1 gap-8 px-8 md:grid-cols-2 md:px-4">
             {skills.map((skill) => (
               <div key={skill.category} className="flex flex-col gap-4">
                 <h3>
@@ -327,42 +334,37 @@ export default function Home() {
             ))}
             <Image
               src="/images/business-challenge-animate.svg"
-              alt="Skills"
-              width={350}
+              alt="Illustration of a team working through a business challenge"
+              className="h-auto min-w-0 w-full max-w-full"
               height={350}
+              width={350}
             />
           </div>
         </div>
       </section>
 
       <section
-        id="cta"
         aria-label="Book Your Free Session"
-        className="relative h-80 md:h-72 overflow-hidden md:overflow-visible"
+        className="relative bg-primary-foreground py-16 text-primary before:absolute before:inset-y-0 before:left-1/2 before:-z-10 before:w-dvw before:-translate-x-1/2 before:bg-primary-foreground"
+        id="cta"
       >
-        <div className="left-0 md:-left-1/4 absolute bg-primary-foreground w-screen text-primary">
-          <div className="mx-auto max-w-4xl">
-            <div className="flex justify-center items-center gap-8 my-16 px-8 md:px-0 align-middle">
-              <div className="justify-center items-center gap-8 grid grid-cols-1 md:grid-cols-5">
-                <div className="flex flex-col items-center md:items-start gap-4 md:gap-8 md:col-span-3">
-                  <h2 className="font-bold text-muted-foreground text-4xl md:text-5xl md:text-left text-center">
-                    <span className="text-primary">Ready</span> to Ship Smarter?
-                  </h2>
-                  <p className="text-base md:text-left text-center">
-                    Stop patching leaks. Let’s engineer solutions that last.
-                  </p>
-                </div>
-                <Link
-                  href="/contact-us"
-                  className="flex justify-center md:justify-start"
-                >
-                  <Button className="flex items-center gap-2">
-                    Book Your Free Session <ArrowRight size={24} />
-                  </Button>
-                </Link>
-              </div>
-            </div>
+        <div className="flex flex-col items-center justify-center gap-8 px-8 md:flex-row md:items-center md:justify-between md:px-0">
+          <div className="flex min-w-0 flex-col items-center gap-4 md:items-start md:gap-8">
+            <h2 className="text-center font-bold text-4xl text-muted-foreground md:text-left md:text-5xl">
+              <span className="text-primary">Ready</span> to Ship Smarter?
+            </h2>
+            <p className="text-center text-base md:text-left">
+              Stop patching leaks. Let’s engineer solutions that last.
+            </p>
           </div>
+          <Link
+            className="flex justify-center md:justify-start"
+            href="/contact-us"
+          >
+            <Button className="flex items-center gap-2">
+              Book Your Free Session <ArrowRight size={24} />
+            </Button>
+          </Link>
         </div>
       </section>
     </>

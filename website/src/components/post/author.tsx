@@ -1,4 +1,5 @@
 import type { Route } from "next";
+import Image from "next/image";
 import { UserRound } from "lucide-react";
 import Link from "next/link";
 import { type InferSelectModel } from "drizzle-orm";
@@ -12,7 +13,13 @@ const Author = ({ post }: { post: Blog }) => {
             {post.authorUrl ? (
                 <Link href={post.authorUrl as Route} target="_blank" className="flex items-center gap-2 hover:text-foreground hover:underline transition-colors">
                     {post.authorImage ? (
-                        <img src={post.authorImage} alt={post.author || "Admin"} className="rounded-full w-5 h-5" />
+                        <Image
+                            alt={post.author || "Admin"}
+                            className="rounded-full w-5 h-5"
+                            height={20}
+                            src={post.authorImage}
+                            width={20}
+                        />
                     ) : (
                         <UserRound className="w-5 h-5" />
                     )}
@@ -21,7 +28,13 @@ const Author = ({ post }: { post: Blog }) => {
             ) : (
                 <div className="flex items-center gap-2">
                     {post.authorImage ? (
-                        <img src={post.authorImage} alt={post.author || "Admin"} className="rounded-full w-5 h-5" />
+                        <Image
+                            alt={post.author || "Admin"}
+                            className="rounded-full w-5 h-5"
+                            height={20}
+                            src={post.authorImage}
+                            width={20}
+                        />
                     ) : (
                         <UserRound className="w-5 h-5" />
                     )}

@@ -36,7 +36,7 @@ export default function RootLayout({
     "@type": "Organization",
     name: siteConfig.name,
     url: siteConfig.url,
-    logo: `${siteConfig.url}/logo.png`,
+    logo: `${siteConfig.url}${siteConfig.logo}`,
     sameAs: [
       siteConfig.links.twitter,
       "https://www.linkedin.com/company/dotenv_co",

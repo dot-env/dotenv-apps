@@ -31,7 +31,7 @@ const Heading = ({
 
             <h1
                 className="mx-auto w-fit font-bold text-muted-foreground text-4xl md:text-5xl text-center leading-relaxed"
-                aria-label="Engineering Success, One Line of Code at a Time"
+                aria-label={`${pageTitleBold} ${pageTitleLight}`}
             >
                 <span className="text-primary">
                     {pageTitleBold}

@@ -4,33 +4,44 @@ import { Button } from "#/components/ui/button";
 import Link from "next/link";
 import { JsonLd } from "#/components/json-ld";
 import type { Service, WithContext } from "schema-dts";
+import type { Route } from "next";
 
-import type { ServiceRecord } from "#/data/services";
+import { services, type ServiceRecord } from "#/data/services";
+import { siteConfig } from "#/configs/site";
+
+function relatedServices(serviceId: string) {
+    const catalog = Object.values(services);
+    const index = catalog.findIndex((service) => service.id === serviceId);
+
+    return [1, 2, 3].map((offset) => catalog[(index + offset) % catalog.length]);
+}
 
 export const ServiceTemplate = ({ data }: { data: ServiceRecord }) => {
+    const related = relatedServices(data.id);
     const serviceJsonLd: WithContext<Service> = {
         "@context": "https://schema.org",
         "@type": "Service",
-        "name": data.title,
-        "description": data.description,
-        "provider": {
-            "@type": "Organization",
-            "name": "Dotenv",
-            "url": "https://www.dotenv.co.za"
-        },
-        "areaServed": "Worldwide",
-        "hasOfferCatalog": {
+        areaServed: "South Africa",
+        description: data.description,
+        hasOfferCatalog: {
             "@type": "OfferCatalog",
-            "name": data.title,
-            "itemListElement": data.features.map((feature) => ({
+            itemListElement: data.features.map((feature) => ({
                 "@type": "Offer",
-                "itemOffered": {
+                itemOffered: {
                     "@type": "Service",
-                    "name": feature.title,
-                    "description": feature.description
-                }
-            }))
-        }
+                    description: feature.description,
+                    name: feature.title,
+                },
+            })),
+            name: data.title,
+        },
+        name: data.title,
+        provider: {
+            "@type": "Organization",
+            name: "Dotenv",
+            url: siteConfig.url,
+        },
+        url: `${siteConfig.url}/services/${data.id}`,
     };
 
     return (
@@ -115,19 +126,25 @@ export const ServiceTemplate = ({ data }: { data: ServiceRecord }) => {
                         ))}
                     </div>
                     <div className="mt-12 pt-12 border-white/10 border-t">
-                        <p className="mb-6 text-primary-foreground/80 italic">
-                            &ldquo;DotEnv transformed our legacy infrastructure into a high-performance engine.
-                            Their precision and technical depth are unmatched.&rdquo;
-                        </p>
-                        <div className="flex items-center gap-4">
-                            <div className="flex justify-center items-center bg-white/20 rounded-full w-12 h-12 font-bold">
-                                CL
-                            </div>
-                            <div>
-                                <p className="font-bold">Cassidie Lewis</p>
-                                <p className="opacity-70 text-sm">CEO, FinNode</p>
-                            </div>
-                        </div>
+                        <h3 className="mb-4 font-bold text-xl">Related services</h3>
+                        <ul className="space-y-3">
+                            {related.map((service) => (
+                                <li key={service.id}>
+                                    <Link
+                                        className="underline-offset-4 hover:underline"
+                                        href={`/services/${service.id}` as Route}
+                                    >
+                                        {service.title}
+                                    </Link>
+                                </li>
+                            ))}
+                        </ul>
+                        <Link
+                            className="inline-block mt-6 underline-offset-4 hover:underline"
+                            href="/our-work"
+                        >
+                            See production work
+                        </Link>
                     </div>
                 </div>
             </section>

@@ -163,14 +163,15 @@ export const links: {
     ];
 
 export const siteConfig = {
-    name: "Dotenv",
-    url: process.env.NEXT_PUBLIC_APP_URL || "https://www.dotenv.co.za",
-    ogImage: "https://www.dotenv.co.za/og.jpg",
-    description: "Dotenv is a premier software development agency specializing in scalable web and mobile applications, digital transformation, and enterprise cloud solutions.",
+    description: "Dotenv is a software development agency in Johannesburg, South Africa. We build web platforms, mobile apps, and cloud systems for startups and enterprises.",
     links: {
-        twitter: "https://twitter.com/dotenv_co",
         github: "https://github.com/dotenv",
+        twitter: "https://twitter.com/dotenv_co",
     },
+    logo: "/android-chrome-512x512.png",
+    name: "Dotenv",
+    ogImage: "/android-chrome-512x512.png",
+    url: process.env.NEXT_PUBLIC_APP_URL || "https://www.dotenv.co.za",
 };
 
 export const meta: Metadata = {
@@ -212,10 +213,10 @@ export const meta: Metadata = {
         siteName: siteConfig.name,
         images: [
             {
-                url: siteConfig.ogImage,
-                width: 1200,
-                height: 630,
                 alt: siteConfig.name,
+                height: 512,
+                url: siteConfig.ogImage,
+                width: 512,
             },
         ],
     },
@@ -238,32 +239,64 @@ export const meta: Metadata = {
         },
     },
     icons: {
-        icon: "/favicon.ico",
-        shortcut: "/favicon-16x16.png",
         apple: "/apple-touch-icon.png",
+        icon: [
+            {
+                sizes: "32x32",
+                type: "image/png",
+                url: "/favicon-32x32.png",
+            },
+            {
+                sizes: "16x16",
+                type: "image/png",
+                url: "/favicon-16x16.png",
+            },
+        ],
     },
     manifest: "/site.webmanifest",
 };
 
+export function projectSlug(name: string) {
+    return name.toLocaleLowerCase().replaceAll(" ", "-");
+}
+
 export const projects = [
     {
-        name: "PipAlert",
         description: "An institutional-grade forex signaling ecosystem enabling expert traders to monetize their insights through branded channels, featuring millisecond-latency push notifications and integrated subscription management.",
-        url: "https://pipalert.co.za",
         image: "https://pipalert.co.za/logo.svg",
-        status: "Production",
         industry: "FinTech",
-        tags: ["React Native", "Dodo Payments", "Next.js", "App Store"]
+        name: "PipAlert",
+        status: "Production",
+        tags: ["React Native", "Dodo Payments", "Next.js", "App Store"],
+        url: "https://pipalert.co.za",
     },
     {
-        name: "Local Lifestyle",
         description: "A premier digital hospitality platform for a luxury lounge and events venue, featuring a sophisticated venue reservation system, dynamic menu engine, and integrated local payment processing.",
-        status: "Live",
-        industry: "Hospitality",
-        url: "https://www.locallifestyle.co.za",
         image: "https://www.locallifestyle.co.za/_next/image?url=%2Flogo.png&w=256&q=75",
-        tags: ["Next.js", "TypeScript", "Convex", "Ozow"]
-    }
+        industry: "Hospitality",
+        name: "Local Lifestyle",
+        status: "Live",
+        tags: ["Next.js", "TypeScript", "Convex", "Ozow"],
+        url: "https://www.locallifestyle.co.za",
+    },
+    {
+        description: "A confidential incident reporting platform for the University of Johannesburg community. People can report gender-based violence without creating an account, then follow case updates with a reference and access token.",
+        image: "https://ireportgbv.uj.ac.za/brand/uj-256.webp",
+        industry: "Higher Education",
+        name: "iReport GBV",
+        status: "Live",
+        tags: ["Next.js"],
+        url: "https://ireportgbv.uj.ac.za",
+    },
+    {
+        description: "A student sales and marketing program management platform for the University of Johannesburg Learn and Earn initiative.",
+        image: "https://dsaujapp.com/android-chrome-512x512.png",
+        industry: "Higher Education",
+        name: "UJ Learn and Earn",
+        status: "Live",
+        tags: ["Next.js"],
+        url: "https://dsaujapp.com",
+    },
 ];
 
 export const skills = [
@@ -279,7 +312,7 @@ export const skills = [
             {
                 "name": "Frontend Engineering",
                 "description":
-                    "Building pixel-perfect React, Angular, or Vue.js apps with 60% faster load times via code-splitting and edge caching.",
+                    "Building React, Angular, or Vue.js apps with code-splitting and edge caching so pages stay fast as they grow.",
                 "tagline": "Websites that convert, not just look pretty.",
             },
             {
@@ -331,7 +364,7 @@ export const skills = [
             {
                 "name": "Database Tuning",
                 "description":
-                    "100x query speed boosts via PostgreSQL indexing, Redis caching, and MongoDB sharding strategies.",
+                    "Faster queries through PostgreSQL indexing, Redis caching, and sharding when the data model calls for it.",
                 "tagline": "Your data shouldn’t be your bottleneck.",
             },
             {
@@ -361,7 +394,7 @@ export const skills = [
                 "name": "UX-Driven Development",
                 "description":
                     "A/B tested interfaces using Figma prototypes and Hotjar heatmaps.",
-                "tagline": "Designs proven to boost signups by 40%+.",
+                "tagline": "Designs tested against how people actually use the product.",
             },
             {
                 "name": "Disaster Recovery",
@@ -418,8 +451,8 @@ export const services: {
             name: "Enterprise Web Development",
             shortDescription: "Transform ideas into high-performance web platforms",
             description:
-                "Crafting cloud-native web solutions that handle millions of users while maintaining blazing speed. From React-powered PWAs to Node.js microservices, we build digital engines for growth.",
-            url: "/services/web-development#",
+                "Web platforms that stay fast as usage grows. From React applications to Node.js services, we build products a team can operate.",
+            url: "/services/web-development",
         },
         {
             name: "Mobile-First Innovation",
@@ -432,28 +465,28 @@ export const services: {
             name: "Conversion-Centered UI/UX",
             shortDescription: "Design that drives engagement & revenue",
             description:
-                "User journeys scientifically optimized to boost retention by 60%+. Our data-backed designs combine behavioral psychology with stunning aesthetics for interfaces that perform.",
-            url: "/services/ui-ux-design#conversion",
+                "User journeys designed around how people actually complete a task. Research and interface design stay in the same engagement.",
+            url: "/services/ui-ux-design",
         },
         {
             name: "Technical Leadership as Service",
             shortDescription: "Your outsourced CTO team",
             description:
-                "Get Fortune 500-grade architecture guidance without the overhead. We blueprint scalable systems, lead DevOps transformations, and de-risk your tech roadmap.",
+                "Architecture guidance without hiring a full-time CTO. We blueprint systems, lead DevOps changes, and de-risk the technical roadmap.",
             url: "/services/cto-consulting",
         },
         {
             name: "Future-Proof Architecture",
             shortDescription: "Systems that scale at startup speed",
             description:
-                "Design serverless ecosystems, event-driven architectures, and fault-tolerant distributed systems. Sleep well knowing your foundation handles 10x growth overnight.",
+                "Serverless, event-driven, and fault-tolerant systems designed for the next stage of growth, not a rewrite every year.",
             url: "/services/scalable-software-architecture",
         },
         {
             name: "Bulletproof Quality Assurance",
             shortDescription: "Ship with zero-critical-issues confidence",
             description:
-                "Our military-grade testing combines penetration testing, load simulation, and mutation testing to eliminate risks before they reach production.",
+                "Testing that combines penetration testing, load simulation, and mutation testing so risks are found before a release.",
             url: "/services/enterprise-software-testing",
         },
 
@@ -468,7 +501,7 @@ export const services: {
             name: "Legacy System Modernization",
             shortDescription: "Revitalize your outdated software stack",
             description:
-                "Upgrade your legacy systems to cloud-native, microservices-based architectures. We refactor monoliths into scalable, maintainable systems that cut costs by 70%.",
+                "Upgrade legacy systems to cloud-native architectures. We refactor monoliths into systems the current team can keep changing.",
             url: "/services/legacy-system-modernization",
         },
         {

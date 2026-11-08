@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import Image from "next/image";
 import Link from "next/link";
 import { Suspense } from "react";
 import { ArrowLeft, Calendar, UserRound } from "lucide-react";
@@ -55,13 +56,17 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
     }
 
     return {
-        title: `${post.title} - Dotenv Blog`,
+        alternates: {
+            canonical: `/blog/${post.slug}`,
+        },
         description: post.excerpt,
         openGraph: {
-            title: post.title,
             description: post.excerpt,
             images: post.imageUrl ? [{ url: post.imageUrl }] : undefined,
+            title: post.title,
+            url: `/blog/${post.slug}`,
         },
+        title: post.title,
     };
 }
 
@@ -91,7 +96,7 @@ async function BlogPost({ params }: BlogPostPageProps) {
             "name": "Dotenv",
             "logo": {
                 "@type": "ImageObject",
-                "url": `${siteConfig.url}/logo.png`
+                "url": `${siteConfig.url}${siteConfig.logo}`
             }
         },
         "mainEntityOfPage": {
@@ -140,11 +145,13 @@ async function BlogPost({ params }: BlogPostPageProps) {
             {/* Content section */}
             <div className="mx-auto px-4 md:px-6 max-w-4xl container">
                 {post.imageUrl && (
-                    <div className="bg-muted mb-12 border rounded-2xl w-full aspect-video overflow-hidden">
-                        <img
-                            src={post.imageUrl}
+                    <div className="relative bg-muted mb-12 border rounded-2xl w-full aspect-video overflow-hidden">
+                        <Image
                             alt={post.title}
-                            className="w-full h-full object-cover"
+                            className="object-cover"
+                            fill
+                            sizes="(min-width: 896px) 896px, 100vw"
+                            src={post.imageUrl}
                         />
                     </div>
                 )}

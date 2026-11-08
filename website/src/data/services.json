@@ -194,7 +194,7 @@
         "id": "ui-ux-design",
         "title": "Conversion-Centered UI/UX",
         "shortDescription": "Design that drives engagement & revenue",
-        "description": "User journeys scientifically optimized to boost retention by 60%+. Our data-backed designs combine behavioral psychology with stunning aesthetics for interfaces that perform.",
+        "description": "User journeys designed around how people actually complete a task. Research and interface design stay in the same engagement.",
         "features": [
             {
                 "title": "User Research",
@@ -232,7 +232,7 @@
         "id": "cto-consulting",
         "title": "Technical Leadership as Service",
         "shortDescription": "Your outsourced CTO team",
-        "description": "Get Fortune 500-grade architecture guidance without the overhead. We blueprint scalable systems, lead DevOps transformations, and de-risk your tech roadmap.",
+        "description": "Architecture guidance without hiring a full-time CTO. We blueprint systems, lead DevOps changes, and de-risk the technical roadmap.",
         "features": [
             {
                 "title": "Tech Stack Audits",
@@ -269,7 +269,7 @@
         "id": "scalable-software-architecture",
         "title": "Future-Proof Architecture",
         "shortDescription": "Systems that scale at startup speed",
-        "description": "Design serverless ecosystems, event-driven architectures, and fault-tolerant distributed systems. Sleep well knowing your foundation handles 10x growth overnight.",
+        "description": "Serverless, event-driven, and fault-tolerant systems designed for the next stage of growth, not a rewrite every year.",
         "features": [
             {
                 "title": "Microservices Migration",
@@ -307,7 +307,7 @@
         "id": "enterprise-software-testing",
         "title": "Bulletproof Quality Assurance",
         "shortDescription": "Ship with zero-critical-issues confidence",
-        "description": "Our military-grade testing combines penetration testing, load simulation, and mutation testing to eliminate risks before they reach production.",
+        "description": "Testing that combines penetration testing, load simulation, and mutation testing so risks are found before a release.",
         "features": [
             {
                 "title": "Automated End-to-End Testing",
@@ -383,7 +383,7 @@
         "id": "legacy-system-modernization",
         "title": "Legacy System Modernization",
         "shortDescription": "Revitalize your outdated software stack",
-        "description": "Upgrade your legacy systems to cloud-native, microservices-based architectures. We refactor monoliths into scalable, maintainable systems that cut costs by 70%.",
+        "description": "Upgrade legacy systems to cloud-native architectures. We refactor monoliths into systems the current team can keep changing.",
         "features": [
             {
                 "title": "Strangler Fig Migration",
@@ -537,7 +537,7 @@
         "id": "seo",
         "title": "Technical SEO & Performance",
         "shortDescription": "Engineered for maximum search visibility",
-        "description": "Go beyond basic keywords. We engineer technical SEO from the ground up—optimizing Core Web Vitals, implementing dynamic sitemaps, and structuring schema markup to dominate search rankings.",
+        "description": "Go beyond basic keywords. We engineer technical SEO from the ground up - optimizing Core Web Vitals, implementing dynamic sitemaps, and structuring schema markup to dominate search rankings.",
         "features": [
             {
                 "title": "Core Web Vitals Optimization",

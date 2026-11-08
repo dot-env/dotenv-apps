@@ -1,17 +1,14 @@
 import ContactForm from "#/components/contact-form";
-import type { Metadata } from "next";
+import { pageMetadata } from "#/lib/page-metadata";
 import { JsonLd } from "#/components/json-ld";
 import type { ContactPage, WithContext } from "schema-dts";
 import { siteConfig } from "#/configs/site";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
+  description: "Contact Dotenv in Johannesburg for a free technical audit. Email team@dotenv.co.za or call +27 68 172 1606.",
+  path: "/contact-us",
   title: "Contact Us",
-  description: "Stop patching leaks. Let's engineer solutions that last. Contact DotEnv for a free consultation today.",
-  openGraph: {
-    title: "Contact Us - Dotenv",
-    description: "Stop patching leaks. Let's engineer solutions that last. Contact DotEnv for a free consultation today.",
-  }
-};
+});
 
 export default function page() {
   const contactJsonLd: WithContext<ContactPage> = {

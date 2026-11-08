@@ -79,6 +79,18 @@ export const navData: {
           title: "Technical SEO",
           url: "/services/seo",
         },
+        {
+          title: "Frontend Engineering",
+          url: "/services/frontend-development",
+        },
+        {
+          title: "Software Consulting",
+          url: "/services/software-consulting",
+        },
+        {
+          title: "Technical Leadership",
+          url: "/services/cto-consulting",
+        },
       ],
     },
     {
