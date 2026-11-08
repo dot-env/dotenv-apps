@@ -17,6 +17,7 @@ import {
 } from "#/components/ui/navigation-menu";
 import {
   Sheet,
+  SheetClose,
   SheetContent,
   SheetHeader,
   SheetTitle,
@@ -60,7 +61,6 @@ interface Navbar1Props {
 
 const Navbar1 = ({
   menu,
-  mobileExtraLinks,
 }: Navbar1Props) => {
   return (
     <section className="z-50 sticky inset-0 bg-transparent backdrop-blur-lg p-4 border rounded-full">
@@ -82,37 +82,33 @@ const Navbar1 = ({
             <Logo />
             <Sheet>
               <SheetTrigger asChild>
-                <Button variant="ghost" size="icon">
-                  <Menu className="size-4" />
+                <Button
+                  aria-label="Open menu"
+                  className="rounded-full"
+                  size="icon"
+                  variant="ghost"
+                >
+                  <Menu className="size-5" />
                 </Button>
               </SheetTrigger>
-              <SheetContent className="overflow-y-auto">
-                <SheetHeader>
-                  <SheetTitle>
-                    <Logo />
-                  </SheetTitle>
+              <SheetContent className="flex h-full w-full flex-col gap-0 p-0 sm:max-w-sm">
+                <SheetHeader className="border-b px-5 pt-5 pr-16 pb-4 text-left">
+                  <Logo />
+                  <SheetTitle className="sr-only">Menu</SheetTitle>
                 </SheetHeader>
-                <div className="flex flex-col gap-6 my-6">
-                  <Accordion
-                    type="single"
-                    collapsible
-                    className="flex flex-col gap-4 w-full"
-                  >
+                <nav aria-label="Mobile" className="flex-1 overflow-y-auto px-3 py-3">
+                  <Accordion className="flex flex-col" collapsible type="single">
                     {menu?.map((item) => renderMobileMenuItem(item))}
                   </Accordion>
-                  <div className="py-4 border-t">
-                    <div className="justify-start grid grid-cols-2">
-                      {mobileExtraLinks?.map((link, idx) => (
-                        <Link
-                          key={idx}
-                          className="inline-flex items-center gap-2 hover:bg-muted px-4 py-2 rounded-full hover:ring-1 hover:ring-zinc-200 h-10 font-medium text-muted-foreground text-sm whitespace-nowrap transition-colors hover:text-accent-foreground"
-                          href={link.url}
-                        >
-                          {link.name}
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
+                </nav>
+                <div className="border-t p-4">
+                  <SheetClose asChild>
+                    <Link href="/contact-us">
+                      <Button className="w-full rounded-full">
+                        Schedule a Free Tech Audit
+                      </Button>
+                    </Link>
+                  </SheetClose>
                 </div>
               </SheetContent>
             </Sheet>
@@ -138,17 +134,17 @@ export const Logo = () => (
 const renderMenuItem = (item: MenuItem) => {
   if (item.items) {
     return (
-      <NavigationMenuItem key={item.title}>
+      <NavigationMenuItem className="relative" key={item.title}>
         <NavigationMenuTrigger className="bg-transparent data-[state=open]:bg-transparent rounded-full hover:ring-1 hover:ring-zinc-200 text-muted-foreground transition-colors hover:text-accent-foreground">
           {item.title}
         </NavigationMenuTrigger>
         <NavigationMenuContent>
-          <ul className="flex flex-col gap-1 p-2 min-w-48">
+          <ul className="flex max-h-[70vh] w-max flex-col gap-1 overflow-y-auto p-2">
             {item.items.map((subItem) => (
               <li key={subItem.title}>
                 <NavigationMenuLink asChild>
                   <Link
-                    className="block hover:bg-muted px-4 py-2 rounded-md outline-none hover:ring-1 hover:ring-zinc-200 font-medium text-muted-foreground text-sm transition-colors hover:text-accent-foreground select-none"
+                    className="block whitespace-nowrap rounded-md px-4 py-2 font-medium text-muted-foreground text-sm outline-none transition-colors hover:bg-muted hover:text-accent-foreground hover:ring-1 hover:ring-zinc-200 select-none"
                     href={subItem.url}
                   >
                     {subItem.title}
@@ -180,44 +176,40 @@ const renderMobileMenuItem = (item: MenuItem) => {
   if (item.items) {
     return (
       <AccordionItem
+        className="border-none"
         key={item.title}
         value={item.title}
-        className="border-b-0 rounded-full hover:ring-1 hover:ring-zinc-200"
       >
-        <AccordionTrigger className="py-0 rounded-full hover:ring-1 hover:ring-zinc-200 font-semibold hover:no-underline">
+        <AccordionTrigger className="rounded-xl px-3 py-3 text-base font-medium hover:bg-muted hover:no-underline">
           {item.title}
         </AccordionTrigger>
-        <AccordionContent className="mt-2">
-          {item.items.map((subItem) => (
-            <Link
-              key={subItem.title}
-              className="flex gap-4 hover:bg-muted px-3 py-2 rounded-full outline-none hover:ring-1 hover:ring-zinc-200 leading-none transition-colors hover:text-accent-foreground select-none"
-              href={subItem.url}
-            >
-              {subItem.icon}
-              <div>
-                <div className="font-semibold text-sm">{subItem.title}</div>
-                {subItem.description && (
-                  <p className="text-muted-foreground text-sm leading-snug">
-                    {subItem.description}
-                  </p>
-                )}
-              </div>
-            </Link>
-          ))}
+        <AccordionContent className="pt-1 pb-2">
+          <div className="flex flex-col">
+            {item.items.map((subItem) => (
+              <SheetClose asChild key={subItem.title}>
+                <Link
+                  className="rounded-lg px-3 py-2.5 text-muted-foreground text-sm transition-colors hover:bg-muted hover:text-foreground"
+                  href={subItem.url}
+                >
+                  {subItem.title}
+                </Link>
+              </SheetClose>
+            ))}
+          </div>
         </AccordionContent>
       </AccordionItem>
     );
   }
 
   return (
-    <Link
-      key={item.title}
-      href={item.url}
-      className="px-3 py-2 rounded-full hover:ring-1 hover:ring-zinc-200 font-semibold"
-    >
-      {item.title}
-    </Link>
+    <SheetClose asChild key={item.title}>
+      <Link
+        className="flex items-center rounded-xl px-3 py-3 font-medium text-base transition-colors hover:bg-muted"
+        href={item.url}
+      >
+        {item.title}
+      </Link>
+    </SheetClose>
   );
 };
 
