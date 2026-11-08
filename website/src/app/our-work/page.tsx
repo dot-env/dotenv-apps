@@ -50,23 +50,25 @@ export default function page() {
             />
 
             <section id="projects" className="mx-auto px-4 md:px-6 container">
-                <div className="gap-8 grid grid-cols-1 md:grid-cols-2">
+                <div className="grid grid-cols-1 items-stretch gap-8 md:grid-cols-2">
                     {projects.map((project) => (
                         <div
-                            className="group flex flex-col bg-background border hover:border-primary/20 rounded-3xl h-full scroll-mt-28 transition-all duration-300"
+                            className="group flex h-full scroll-mt-28 flex-col rounded-3xl border bg-background transition-all duration-300 hover:border-primary/20"
                             id={projectSlug(project.name)}
                             key={project.name}
                         >
-                            {/* Project Header / Media */}
-                            <div className="relative bg-muted/30 border-b aspect-video overflow-hidden">
+                            <div className="relative aspect-[2/1] shrink-0 overflow-hidden border-b bg-muted/30">
                                 {project.image && !project.image.startsWith('/') ? (
-                                    <Image
-                                        alt={project.name}
-                                        className="object-cover group-hover:scale-105 transition-transform duration-500"
-                                        fill
-                                        sizes="(min-width: 768px) 50vw, 100vw"
-                                        src={project.image}
-                                    />
+                                    <div className="absolute inset-0 flex items-center justify-center p-8">
+                                        <Image
+                                            alt={project.name}
+                                            className="h-full w-full object-contain"
+                                            height={256}
+                                            sizes="(min-width: 768px) 420px, 100vw"
+                                            src={project.image}
+                                            width={256}
+                                        />
+                                    </div>
                                 ) : (
                                     <div className="flex justify-center items-center w-full h-full text-muted-foreground">
                                         <div className="flex flex-col items-center gap-2">
@@ -105,11 +107,11 @@ export default function page() {
                                     )}
                                 </div>
 
-                                <p className="mb-8 text-muted-foreground text-lg leading-relaxed">
+                                <p className="mb-8 line-clamp-4 text-lg text-muted-foreground leading-relaxed">
                                     {project.description}
                                 </p>
 
-                                <div className="flex flex-wrap gap-2 mt-auto">
+                                <div className="mt-auto flex min-h-16 flex-wrap content-start gap-2">
                                     {project.tags?.map((tag: string, i: number) => (
                                         <span
                                             key={i}
