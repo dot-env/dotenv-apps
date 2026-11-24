@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { Resend } from 'resend';
+import { Resend, type Attachment } from 'resend';
 
 const resend = new Resend(process.env.RESEND_API_KEY!);
 
@@ -66,17 +66,103 @@ export async function POST(request: Request) {
             }
 
             // Format recipient list from process.env
-            const contactEmails = (
-                process.env.CONTACT_EMAILS || ""
-            ).split(",");
+            const contactEmails = (process.env.CONTACT_EMAILS || "")
+                .split(",")
+                .map((email) => email.trim())
+                .filter(Boolean);
             const fromEmail = process.env.FROM_EMAIL || "dotenv <contact@dotenv.co.za>";
 
+            if (contactEmails.length === 0) {
+                console.error('CONTACT_EMAILS not configured');
+                return NextResponse.json(
+                    { error: 'CONTACT_EMAILS not configured' },
+                    { status: 500 },
+                );
+            }
+
             try {
-                const { error: forwardError } = await resend.emails.receiving.forward({
-                    emailId: received.email_id,
-                    to: contactEmails,
+                const { data: email, error: getEmailError } =
+                    await resend.emails.receiving.get(received.email_id, {
+                        html_format: 'cid',
+                    });
+
+                if (getEmailError || !email) {
+                    console.error('Failed to fetch received email:', getEmailError);
+                    return NextResponse.json(
+                        { error: getEmailError?.message || 'Failed to fetch received email' },
+                        { status: 500 },
+                    );
+                }
+
+                const attachments: Attachment[] = [];
+                if (email.attachments.length > 0) {
+                    const { data: attachmentList, error: attachmentsError } =
+                        await resend.emails.receiving.attachments.list({
+                            emailId: received.email_id,
+                        });
+
+                    if (attachmentsError) {
+                        console.error('Failed to list email attachments:', attachmentsError);
+                    } else if (attachmentList?.data?.length) {
+                        const downloaded = await Promise.all(
+                            attachmentList.data.map(async (attachment): Promise<Attachment> => {
+                                const contentId = attachment.content_id
+                                    ? attachment.content_id.replace(/^<|>$/g, '')
+                                    : undefined;
+
+                                try {
+                                    const response = await fetch(attachment.download_url);
+                                    if (response.ok) {
+                                        return {
+                                            content: Buffer.from(await response.arrayBuffer()),
+                                            filename: attachment.filename,
+                                            contentType: attachment.content_type,
+                                            ...(contentId ? { contentId } : {}),
+                                        };
+                                    }
+                                } catch (downloadErr) {
+                                    console.error(
+                                        `Failed to download attachment ${attachment.id}:`,
+                                        downloadErr,
+                                    );
+                                }
+
+                                return {
+                                    path: attachment.download_url,
+                                    filename: attachment.filename,
+                                    contentType: attachment.content_type,
+                                    ...(contentId ? { contentId } : {}),
+                                };
+                            }),
+                        );
+                        attachments.push(...downloaded);
+                    }
+                }
+
+                const replyTo = email.reply_to?.length
+                    ? email.reply_to
+                    : email.from || received.from;
+
+                const baseOptions = {
                     from: fromEmail,
-                });
+                    to: contactEmails,
+                    ...(replyTo ? { replyTo } : {}),
+                    subject: email.subject || received.subject || '(no subject)',
+                    ...(attachments.length > 0 ? { attachments } : {}),
+                };
+
+                const forwardPayload = email.html
+                    ? {
+                          ...baseOptions,
+                          html: email.html,
+                          ...(email.text ? { text: email.text } : {}),
+                      }
+                    : {
+                          ...baseOptions,
+                          text: email.text || '(no content)',
+                      };
+
+                const { error: forwardError } = await resend.emails.send(forwardPayload);
 
                 if (forwardError) {
                     console.error('Failed to forward email:', forwardError);
@@ -86,6 +172,10 @@ export async function POST(request: Request) {
                 console.log(`Forwarded email successfully to ${contactEmails.join(", ")}`);
             } catch (sendErr) {
                 console.error('Failed to forward email:', sendErr);
+                return NextResponse.json(
+                    { error: 'Failed to forward email' },
+                    { status: 500 },
+                );
             }
         } else {
             console.log('Unhandled event type:', event.type);

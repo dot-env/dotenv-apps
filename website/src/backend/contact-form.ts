@@ -72,7 +72,10 @@ export const handleContactForm = async (data: ContactForm) => {
 
         const contactEmails = (
           process.env.CONTACT_EMAILS || "axole@mail.com,contact@dotenv.co.za"
-        ).split(",");
+        )
+          .split(",")
+          .map((addr) => addr.trim())
+          .filter(Boolean);
 
         const fromEmail = process.env.FROM_EMAIL || "dotenv <contact@dotenv.co.za>";
 
@@ -81,6 +84,7 @@ export const handleContactForm = async (data: ContactForm) => {
           resend.emails.send({
             from: fromEmail,
             to: contactEmails,
+            replyTo: email,
             subject: `New Contact Form Submission: ${first_name} ${last_name}`,
             text: `Name: ${first_name} ${last_name}\nEmail: ${email}\nPhone: ${phone}\nCompany Size: ${company_size}\nService: ${service}\nMessage: ${data.message || "N/A"}`,
           }),
